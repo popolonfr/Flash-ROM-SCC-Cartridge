@@ -6,7 +6,7 @@
 | ---------------------| ---- | ----------- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Offset\_L            |   w  |    3800h    |  d7 |  d6 |  d5 |  d4 |  d3 |  d2 |  d1 |  d0 |
 | Offset\_H            |   w  |    3801h    |     |     |     |     |     | d10 |  d9 |  d8 |
-| Offset    (2 Mo)     |   w  |    3FFFh    |  d7 |  d6 |  d5 |  d4 |  d3 |  d2 |  d1 |  d0 |
+| Offset    (ver 2 MB) |   w  |    3FFFh    |  d7 |  d6 |  d5 |  d4 |  d3 |  d2 |  d1 |  d0 |
 | Operating_Mode       |   w  |    3804h    |     |     |     |     |     |     |   M |   R |
 | **Kon_DAC_Out** ¹    |   w  |    4000h    |  d7 |  d6 |  d5 |  d4 |  d3 |  d2 |  d1 |  d0 |
 | **Kon_DAC_Ctrl** ²   |   w  |    98FBh    |     |     |     |   D |     |     |     |     |
