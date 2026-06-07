@@ -50,3 +50,4 @@ The number of SCC Mapper segments usable by the Rom will remain 256 and will not
 **Offset_L** and **Offset_H** form a single register and are only present on the user and developer versions of the cartridge. Bits d0 to d13 represent the number of an 8 KB segment and allow manipulation of up to 128 MB of flash memory. Currently, the cartridge only uses 16 MB of memory. This register is accessible at address 3800h~3801h but is mirrored from 3802h to 3FFFh.
 
 **Offset (ver 2 MB)** is only present on the basic version of the cartridge. Bits d0 to d7 represent the number of an 8 KB segment and allow manipulation of up to 2 MB of flash memory. This register is only accessible at address 3FFFh.
+
