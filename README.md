@@ -1,6 +1,30 @@
 # Flash-ROM-SCC-Cartridge
 
-## Register Map
+## Description
+
+Here you will find all the information concerning the [**Flash ROM SCC cartridge**](https://www.msx.org/wiki/Popolon-fr_Flash-ROM_SCC_Cartridge), from its use to the technical specifications for different models and their specific access points for memory and sound management.
+
+* **Basic Version** (Dual)
+  * Offset Register
+  * 2 MB of flash memory
+  * Konami SCC (Mapper & Sound Engine)
+  * PCB compatible with the Konami SCC cartridge case
+
+* **User version** (ROM collection)
+  * Offset Register
+  * 16 MB of flash memory
+  * Konami SCC (Mapper & Sound Engine)
+  * DAC (Konami compatible)
+  * PCB compatible with the Konami SCC cartridge case
+
+* **Developer version** (Large capacity game)
+  * Extended 16-bit registers for the ROM Mapper
+  * 16 MB of flash memory
+  * Konami SCC (Mapper & Sound Engine)
+  * DAC (Konami compatible)
+  * PCB compatible with the Konami SCC cartridge case
+
+## Details of proprietary registers
 
 | REGISTER NAME        | MODE | ADDRESS(ES) |  B7 |  B6 |  B5 |  B4 |  B3 |  B2 |  B1 |  B0 |
 | ---------------------| ---- | ----------- | --- | --- | --- | --- | --- | --- | --- | --- |
