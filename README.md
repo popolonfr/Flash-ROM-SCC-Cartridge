@@ -39,10 +39,12 @@ Here you will find all the information concerning the [**Flash ROM SCC cartridge
 
 ### Offset
 
-The **Offset** is a register used to **indicate** the **starting point** in flash memory for the Mapper registers. Its step size is 8KB. Thus, when the Offset is 0, the Mapper registers will start at address 0000h of the flash memory, but when it is 1, the Mapper registers will start at address 2000h of the flash memory.
+The Offset is a register used to indicate the starting point in flash memory for the Mapper registers. Its step size is 8KB. Thus, when the Offset is 0, the Mapper registers will start at address 0000h of the flash memory, but when it is 1, the Mapper registers will start at address 2000h of the flash memory.
 
 It immediately affects all the mapper's registers by summing them, and if you assign a value that exceeds the size of the flash memory, the pointer will loop back to the beginning of the memory.
 
 This register is only useful for ROM collections because it allows you to specify the ROM's position in memory and will map the mapper's registers to the first segment of the ROM.
 
-The number of SCC Mapper segments usable by the Rom will remain 256 and will not be suitable for large Roms that need more than 256 segments; in this case, it will be necessary to use the 16-bit register mode of the Mapper from the developer version of the cartridge.
+The number of SCC Mapper segments usable by the Rom will remain 256 and will not be suitable for large Roms which need more segments; in this case, it will be necessary to use the 16-bit register mode of the Mapper from the developer version of the cartridge.
+
+Offset_L and Offset_H form a single register and are only present on the user and developer versions of the cartridge. Bits d0 to d13 represent the number of an 8 KB segment and allow manipulation of up to 128 MB of flash memory. Currently, the cartridge only uses 16 MB of memory. This register is accessible at address 3800h~3801h but is mirrored from 3802h to 3FFFh.
