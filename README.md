@@ -52,5 +52,3 @@ Offset_L and Offset_H form a single register and are available only in the User 
 Offset (2 MB version) is available only in the Basic version of the cartridge. Bits d0 through d7 represent the number of an 8 KB segment and allow addressing of up to 2 MB of flash memory. This register is accessible only at address 3FFFh.
 
 ### Control mode
-
-Operating_Mode
