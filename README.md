@@ -47,7 +47,7 @@ Here you will find all the information concerning the [**Flash ROM SCC cartridge
 
 ### Offset
 
-The Offset register specifies the starting location in flash memory for the Mapper registers. Each increment corresponds to an 8 KB block. Therefore, when the Offset is set to 0, the Mapper registers start at address 0000h in flash memory; when it is set to 1, they start at address 2000h.
+The Offset register specifies the starting location in flash memory for the Mapper registers. Each increment corresponds to an 8 KB block. Therefore, when the Offset is set to **0**, the Mapper registers start at address 0000h in flash memory; when it is set to **1**, they start at address 2000h.
 
 The Offset value is immediately added to all Mapper register values. If a value exceeding the size of the flash memory is assigned, the address pointer will wrap around to the beginning of the memory.
 
@@ -63,4 +63,4 @@ Offset (2 MB version) is available only in the Basic version of the cartridge. B
 
 This register is used to modify the registers' behavior. It is implemented only in the Developer and Game versions of the cartridge. Currently, only bit **`M`** is used; bit **`R`** is for a future development and will not be described at this time.
 
-When **`M`** is set to 1, the Mapper's registers switch to 16-bit mode.
+When **`M`** is set to **1**, the Mapper's registers switch to 16-bit mode.
