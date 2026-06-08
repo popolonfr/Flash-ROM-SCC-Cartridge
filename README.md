@@ -31,7 +31,7 @@ Here you will find all the information concerning the [**Flash ROM SCC cartridge
 | Offset\_L            |   w  |    3800h    |  d7 |  d6 |  d5 |  d4 |  d3 |  d2 |  d1 |  d0 |
 | Offset\_H            |   w  |    3801h    |     |     | d13 | d12 | d11 | d10 |  d9 |  d8 |
 | Offset    (ver 2 MB) |   w  |    3FFFh    |  d7 |  d6 |  d5 |  d4 |  d3 |  d2 |  d1 |  d0 |
-| Control_Mode         |   w  |    3804h    |     |     |     |     |     |     |   M |   R |
+| Operating_Mode       |   w  |    3804h    |     |     |     |     |     |     |   M |   R |
 | Knm_DAC_Out ⁽¹⁾      |   w  |    4000h    |  d7 |  d6 |  d5 |  d4 |  d3 |  d2 |  d1 |  d0 |
 | Knm_DAC_Ctrl ⁽²⁾     |   w  |    98FBh    |     |     |     |   D |     |     |     |     |
 | DAC_Output ⁽²⁾       |   w  |    98FCh    |  d7 |  d6 |  d5 |  d4 |  d3 |  d2 |  d1 |  d0 |
@@ -51,4 +51,4 @@ Offset_L and Offset_H form a single register and are available only in the User 
 
 Offset (2 MB version) is available only in the Basic version of the cartridge. Bits d0 through d7 represent the number of an 8 KB segment and allow addressing of up to 2 MB of flash memory. This register is accessible only at address 3FFFh.
 
-### Control mode
+### Operating mode
