@@ -39,15 +39,16 @@ Here you will find all the information concerning the [**Flash ROM SCC cartridge
 
 ### Offset
 
-The Offset is a register used to indicate the starting point in flash memory for the Mapper registers. Its step size is 8KB. Thus, when the Offset is 0, the Mapper registers will start at address 0000h of the flash memory, but when it is 1, the Mapper registers will start at address 2000h of the flash memory.
+The Offset register specifies the starting location in flash memory for the Mapper registers. Each increment corresponds to an 8 KB block. Therefore, when the Offset is set to 0, the Mapper registers start at address 0000h in flash memory; when it is set to 1, they start at address 2000h.
 
-It immediately affects all the mapper's registers by summing them, and if you assign a value that exceeds the size of the flash memory, the pointer will loop back to the beginning of the memory.
+The Offset value is immediately added to all Mapper register values. If a value exceeding the size of the flash memory is assigned, the address pointer will wrap around to the beginning of the memory.
 
-This register is only useful for ROM collections because it allows you to specify the ROM's position in memory and will map the mapper's registers to the first segment of the ROM.
+This register is only useful for ROM compilations, as it allows the position of a ROM within flash memory to be specified and maps the Mapper registers to the ROM's first segment.
 
-The number of SCC Mapper segments usable by the Rom will remain 256 and will not be suitable for large Roms which need more segments; in this case, it will be necessary to use the 16-bit register mode of the Mapper from the developer version of the cartridge.
+The number of SCC Mapper segments accessible to the ROM remains limited to 256, making this feature unsuitable for large ROMs that require additional segments. In such cases, the extended 16-bit Mapper registers available in the developer version of the cartridge must be used.
 
-**Offset_L** and **Offset_H** form a single register and are only present on the user and developer versions of the cartridge. Bits d0 to d13 represent the number of an 8 KB segment and allow manipulation of up to 128 MB of flash memory. Currently, the cartridge only uses 16 MB of memory. This register is accessible at address 3800h~3801h but is mirrored from 3802h to 3FFFh.
+Offset_L and Offset_H form a single register and are available only in the User and Developer versions of the cartridge. Bits d0 through d13 represent the number of an 8 KB segment and allow addressing of up to 128 MB of flash memory. The cartridge currently uses only 16 MB of flash memory. This register is accessible at addresses 3800h and 3801h and is mirrored from 3802h through 3FFFh.
 
-**Offset (ver 2 MB)** is only present on the basic version of the cartridge. Bits d0 to d7 represent the number of an 8 KB segment and allow manipulation of up to 2 MB of flash memory. This register is only accessible at address 3FFFh.
+Offset (2 MB version) is available only in the Basic version of the cartridge. Bits d0 through d7 represent the number of an 8 KB segment and allow addressing of up to 2 MB of flash memory. This register is accessible only at address 3FFFh.
+
 
