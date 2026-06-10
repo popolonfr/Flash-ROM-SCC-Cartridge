@@ -59,6 +59,8 @@ Offset_L and Offset_H form a single register and are available only in the Devel
 
 Offset (2 MB version) is available only in the Basic version of the cartridge. Bits d0 through d7 represent the number of an 8 KB segment and allow addressing of up to 2 MB of flash memory. This register is accessible only at address 3FFFh.
 
+The default Offset value is 0.
+
 ### Operating mode
 
 This register is used to modify the registers' behavior. It is implemented only in the Developer and Game versions of the cartridge. Currently, only bit **`M`** is used; bit **`R`** is for a future development and will not be described at this time.
