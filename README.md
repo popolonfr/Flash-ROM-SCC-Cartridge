@@ -65,4 +65,8 @@ The default Offset value is 0.
 
 This register is used to modify the registers' behavior. It is implemented only in the Developer and Game versions of the cartridge. Currently, only bit **`M`** is used; bit **`R`** is for a future development and will not be described at this time.
 
-When **`M`** is set to **1**, the Mapper's registers switch to 16-bit mode.
+* **8-bit mode**
+  * When **`M`** is set to **0**, the Mapper's registers switch to 8-bit mode. This is the default mode.
+
+* **16-bit mode**
+  * When **`M`** is set to **1**, the Mapper's registers switch to 16-bit mode.
