@@ -86,3 +86,5 @@ This register is used to modify the registers' behavior. It is implemented only 
     | 3    | B000h~9002h  | B000h–B7FFh  |
 
 The default value for **`M`** is **0**
+
+Although the hardware initializes the four Mapper pages with segments 0, 1, 2, and 3, the ROMs that use it must still initialize them to function correctly. This is because when the computer is powered on or reset, the BIOS searches for the memory and expansions connected in each slot and can modify the cartridge's Mapper registers by writing to them. Therefore, unless the Mapper is initialized beforehand, the ROMs must use the mode for which they are designed.
