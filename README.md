@@ -88,3 +88,7 @@ This register controls the behavior of the mapper registers. It is implemented o
 The default value for **`M`** is **0**.
 
 Although the hardware initializes the four mapper pages with segments 0, 1, 2, and 3, ROMs designed for this mapper must still perform their own initialization. This is because, when the computer is powered on or reset, the BIOS scans each slot for memory and expansion devices. During this process, it may modify the cartridge's mapper registers by writing to them. Therefore, software must initialize the mapper before relying on its contents or operating mode.
+
+## Digital-to-Analog Converter (DAC)
+
+The DAC provides an 8-bit unsigned conversion through a single register, to which each byte must be written manually at the desired frequency. There are two methods of use: the first is standard, while the second exists only for compatibility with Konami ROMs.
