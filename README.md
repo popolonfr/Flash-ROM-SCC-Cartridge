@@ -59,14 +59,30 @@ Offset_L and Offset_H form a single register and are available only in the Devel
 
 Offset (2 MB version) is available only in the Basic version of the cartridge. Bits d0 through d7 represent the number of an 8 KB segment and allow addressing of up to 2 MB of flash memory. This register is accessible only at address 3FFFh.
 
-The default Offset value is 0.
+The default Offset value is **0**.
 
 ### Operating mode
 
 This register is used to modify the registers' behavior. It is implemented only in the Developer and Game versions of the cartridge. Currently, only bit **`M`** is used; bit **`R`** is for a future development and will not be described at this time.
 
 * **8-bit mode**
-  * When **`M`** is set to **0**, the Mapper's registers switch to 8-bit mode. This is the default mode.
+  * When **`M`** is set to **0**, the Mapper's registers switch to 8-bit mode.
+
+    | PAGE | ADRESS | MIRROR RANGE |
+    | ---- | ------ | ------------ |
+    | 0    | 5000h  | 5000h–57FFh  |
+    | 1    | 7000h  | 7000h–77FFh  |
+    | 2    | 9000h  | 9000h–97FFh  |
+    | 3    | B000h  | B000h–B7FFh  |
 
 * **16-bit mode**
   * When **`M`** is set to **1**, the Mapper's registers switch to 16-bit mode.
+
+    | PAGE | ADRESSES     | MIRROR RANGE |
+    | ---- | ------------ | ------------ |
+    | 0    | 5000h~5001h  | 5000h–57FFh  |
+    | 1    | 7000h~7001h  | 7000h–77FFh  |
+    | 2    | 9000h~9001h  | 9000h–97FFh  |
+    | 3    | B000h~9002h  | B000h–B7FFh  |
+
+The default value for **`M`** is **0**
