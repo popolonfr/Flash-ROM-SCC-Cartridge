@@ -63,10 +63,10 @@ The default Offset value is **0**.
 
 ### Operating mode
 
-This register is used to modify the registers' behavior. It is implemented only in the Developer and Game versions of the cartridge. Currently, only bit **`M`** is used; bit **`R`** is for a future development and will not be described at this time.
+This register controls the behavior of the mapper registers. It is implemented only in the Developer and Game cartridge versions. Currently, only bit **`M`** is used. Bit **`R`** is reserved for future use and is not described here.
 
 * **Mapper in 8-bit mode**
-  * When **`M`** is set to **0**, the Mapper's registers switch to 8-bit mode, allowing up to 256 segments of 8 KB each. It is fully compatible with Konami's SCC Mapper. A segment can be assigned to one of the four pages by writing a single byte to the register corresponding to that page.
+  * When **`M`** = 0, the mapper operates in 8-bit mode, allowing up to 256 segments of 8 KB each. This mode is fully compatible with the Konami SCC Mapper. A segment is assigned to one of the four pages by writing an 8-bit value to the register associated with that page.
 
     | PAGE | ADRESS | MIRROR RANGE |
     | ---- | ------ | ------------ |
@@ -76,7 +76,7 @@ This register is used to modify the registers' behavior. It is implemented only 
     | 3    | B000h  | B000h–B7FFh  |
 
 * **Mapper in 16-bit mode.**
-  * When **`M`** is set to **1**, the mapper registers switch to 16-bit mode, allowing up to 16,384 segments of 8 KB each. A segment can be assigned to one of the four pages by writing a 16-bit word to the register corresponding to that page.
+  * When M = 1, the mapper operates in 16-bit mode, allowing up to 16,384 segments of 8 KB each. A segment is assigned to one of the four pages by writing a 16-bit value to the register associated with that page.
 
     | PAGE | ADRESSES     | MIRROR RANGE |
     | ---- | ------------ | ------------ |
@@ -87,4 +87,4 @@ This register is used to modify the registers' behavior. It is implemented only 
 
 The default value for **`M`** is **0**.
 
-Although the hardware initializes the four Mapper pages with segments 0, 1, 2, and 3, the ROMs that use it must still initialize them to function correctly. This is because when the computer is powered on or reset, the BIOS searches for the memory and expansions connected in each slot and can modify the cartridge's Mapper registers by writing to them. Therefore, unless the Mapper is initialized beforehand, the ROMs must use the mode for which they are designed.
+Although the hardware initializes the four mapper pages with segments 0, 1, 2, and 3, ROMs designed for this mapper must still perform their own initialization. This is because, when the computer is powered on or reset, the BIOS scans each slot for memory and expansion devices. During this process, it may modify the cartridge's mapper registers by writing to them. Therefore, software must initialize the mapper before relying on its contents or operating mode.
