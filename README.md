@@ -83,7 +83,7 @@ This register is used to modify the registers' behavior. It is implemented only 
     | 0    | 5000h~5001h  | 5000h–57FFh  |
     | 1    | 7000h~7001h  | 7000h–77FFh  |
     | 2    | 9000h~9001h  | 9000h–97FFh  |
-    | 3    | B000h~9002h  | B000h–B7FFh  |
+    | 3    | B000h~B002h  | B000h–B7FFh  |
 
 The default value for **`M`** is **0**.
 
