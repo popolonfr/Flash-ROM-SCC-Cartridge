@@ -4,27 +4,27 @@
 
 Here you will find all the information concerning the [**Flash ROM SCC cartridge**](https://www.msx.org/wiki/Popolon-fr_Flash-ROM_SCC_Cartridge), from its use to the technical specifications for different models and their specific access points for memory and sound management.
 
-* **Basic Version**
+* **Basic Edition**
   * Offset Register
   * 2 MB of flash memory
   * Konami SCC (Mapper & Sound Engine)
   * PCB compatible with the Konami SCC cartridge case
 
-* **Multi-ROM version**
+* **Multi-ROM Edition**
   * Offset Register
   * 16 MB of flash memory
   * Konami SCC (Mapper & Sound Engine)
   * DAC (Konami compatible)
   * PCB compatible with the Konami SCC cartridge case
 
-* **Game version** (Large capacity game)
+* **Game Edition** (Large-Capacity Game)
   * extended 16-bit Mapper registers for the ROM Mapper
   * 16 MB of flash memory
   * Konami SCC (Mapper & Sound Engine)
   * DAC (Konami compatible)
   * PCB compatible with the Konami SCC cartridge case
 
-* **Developer version**
+* **Developer Edition**
   * Offset Register
   * extended 16-bit Mapper registers for the ROM Mapper
   * 16 MB of flash memory
@@ -53,17 +53,17 @@ The Offset value is immediately added to all Mapper register values. If a value 
 
 This register is only useful for ROM compilations, as it allows the position of a ROM within flash memory to be specified and maps the Mapper registers to the ROM's first segment.
 
-The number of SCC Mapper segments accessible to the ROM remains limited to 256, making this feature unsuitable for large ROMs that require additional segments. In such cases, the extended 16-bit Mapper registers available in the developer and Game versions of the cartridge must be used.
+The number of SCC Mapper segments accessible to the ROM remains limited to 256, making this feature unsuitable for large ROMs that require additional segments. In such cases, the extended 16-bit Mapper registers available in the developer and Game editions of the cartridge must be used.
 
-Offset_L and Offset_H form a single register and are available only in the Developer, Game and Multi-ROM versions of the cartridge. Bits d0 through d13 represent the number of an 8 KB segment and allow addressing of up to 128 MB of flash memory. The cartridge currently uses only 16 MB of flash memory. This register is accessible at addresses 3800h and 3801h and is mirrored from 3802h through 3FFFh.
+Offset_L and Offset_H form a single register and are available only in the Developer, Game and Multi-ROM editions of the cartridge. Bits d0 through d13 represent the number of an 8 KB segment and allow addressing of up to 128 MB of flash memory. The cartridge currently uses only 16 MB of flash memory. This register is accessible at addresses 3800h and 3801h and is mirrored from 3802h through 3FFFh.
 
-Offset (2 MB version) is available only in the Basic version of the cartridge. Bits d0 through d7 represent the number of an 8 KB segment and allow addressing of up to 2 MB of flash memory. This register is accessible only at address 3FFFh.
+Offset (2 MB edition) is available only in the Basic edition of the cartridge. Bits d0 through d7 represent the number of an 8 KB segment and allow addressing of up to 2 MB of flash memory. This register is accessible only at address 3FFFh.
 
 The default Offset value is **0**.
 
 ### Operating mode
 
-This register controls the behavior of the mapper registers. It is implemented only in the Developer and Game cartridge versions. Currently, only bit **`M`** is used. Bit **`R`** is reserved for future use and is not described here.
+This register controls the behavior of the mapper registers. It is implemented only in the Developer and Game cartridge editions. Currently, only bit **`M`** is used. Bit **`R`** is reserved for future use and is not described here.
 
 * **Mapper in 8-bit mode**
   * When **`M`** = 0, the mapper operates in 8-bit mode, allowing up to 256 segments of 8 KB each. This mode is fully compatible with the Konami SCC Mapper. A segment is assigned to one of the four pages by writing an 8-bit value to the register associated with that page.
