@@ -14,14 +14,14 @@ Here you will find all the information concerning the [**Flash ROM SCC cartridge
   * Offset Register
   * 16 MB of flash memory
   * Konami SCC (Mapper & Sound Engine)
-  * DAC (Konami compatible)
+  * Digital to Analog Converter (Konami compatible)
   * PCB compatible with the Konami SCC cartridge case
 
 * **Game Edition** (Large-Capacity Game)
   * extended 16-bit Mapper registers for the ROM Mapper
   * 16 MB of flash memory
   * Konami SCC (Mapper & Sound Engine)
-  * DAC (Konami compatible)
+  * Digital to Analog Converter (Konami compatible)
   * PCB compatible with the Konami SCC cartridge case
 
 * **Developer Edition**
@@ -29,7 +29,7 @@ Here you will find all the information concerning the [**Flash ROM SCC cartridge
   * extended 16-bit Mapper registers for the ROM Mapper
   * 16 MB of flash memory
   * Konami SCC (Mapper & Sound Engine)
-  * DAC (Konami compatible)
+  * Digital to Analog Converter (Konami compatible)
   * PCB compatible with the Konami SCC cartridge case
 
 ## Details of proprietary registers
