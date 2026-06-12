@@ -102,6 +102,4 @@ The cartridge includes an 8-bit unsigned DAC controlled through a single registe
     All other bits are reserved and must be set to **0**.
 
 * **Knm_DAC_Data**
-  * Writing an 8-bit unsigned value to this register sends it to the DAC.
-  
-    ###### Note: This register is available only when the Konami-type DAC is enabled (see the Knm_DAC_Ctrl register).
+  * Writing an 8-bit unsigned value to this register sends it to the DAC. This register is available only when the Konami-type DAC is enabled (see the Knm_DAC_Ctrl register).
