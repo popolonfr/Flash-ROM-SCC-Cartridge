@@ -66,7 +66,7 @@ The default Offset value is **0**.
 This register controls the behavior of the mapper registers. It is implemented only in the Developer and Game cartridge editions. Currently, only bit **`M`** is used. Bit **`R`** is reserved for future use and is not described here.
 
 * **Mapper in 8-bit mode**
-  * When **`M`** = 0, the mapper operates in 8-bit mode, allowing up to 256 segments of 8 KB each. This mode is fully compatible with the Konami SCC Mapper. A segment is assigned to one of the four pages by writing an 8-bit value to the register associated with that page.
+  * When **`M`** = **0**, the mapper operates in 8-bit mode, allowing up to 256 segments of 8 KB each. This mode is fully compatible with the Konami SCC Mapper. A segment is assigned to one of the four pages by writing an 8-bit value to the register associated with that page.
 
     | PAGE | ADRESS | MIRROR RANGE |
     | ---- | ------ | ------------ |
@@ -76,7 +76,7 @@ This register controls the behavior of the mapper registers. It is implemented o
     | 3    | B000h  | B000h–B7FFh  |
 
 * **Mapper in 16-bit mode.**
-  * When M = 1, the mapper operates in 16-bit mode, allowing up to 16,384 segments of 8 KB each. A segment is assigned to one of the four pages by writing a 16-bit value to the register associated with that page.
+  * When  **`M`** = **1**, the mapper operates in 16-bit mode, allowing up to 16,384 segments of 8 KB each. A segment is assigned to one of the four pages by writing a 16-bit value to the register associated with that page.
 
     | PAGE | ADRESSES     | MIRROR RANGE |
     | ---- | ------------ | ------------ |
