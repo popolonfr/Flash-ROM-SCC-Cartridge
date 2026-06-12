@@ -32,7 +32,7 @@ Here you will find all the information concerning the [**Flash ROM SCC cartridge
   * Digital to Analog Converter (Konami compatible)
   * PCB compatible with the Konami SCC cartridge case
 
-## Details of proprietary registers
+## Proprietary Register Overview
 
 | REGISTER NAME        | MODE | ADDRESS(ES) |  B7 |  B6 |  B5 |  B4 |  B3 |  B2 |  B1 |  B0 |
 | ---------------------| ---- | ----------- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -103,3 +103,19 @@ The cartridge includes an 8-bit unsigned DAC controlled through a single registe
 
 * **Knm_DAC_Data**
   * Writing an 8-bit unsigned value to this register sends it to the DAC. This register is available only when the Konami-type DAC is enabled (see the Knm_DAC_Ctrl register).
+
+## SCC Register Overview
+
+This section briefly describes the registers of the sound engine, an SCC-compatible sound processor developed by Konami.
+
+The SCC (Sound Creative Chip) is a 5-channel wavetable sound generator in which each channel plays a 32-byte 8-bit waveform stored in RAM, with frequency controlled by a 12-bit pitch register.
+
+### Waveform control
+
+| REGISTER NAME        | MODE | ADDRESSES   |  B7 |  B6 |  B5 |  B4 |  B3 |  B2 |  B1 |  B0 |
+| ---------------------| ---- | ----------- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Waveform_Ch1         | r/w  | 9800h~981Fh |  d7 |  d6 |  d5 |  d4 |  d3 |  d2 |  d1 |  d0 |
+| Waveform_Ch2         | r/w  | 9820h~983Fh |  d7 |  d6 |  d5 |  d4 |  d3 |  d2 |  d1 |  d0 |
+| Waveform_Ch3         | r/w  | 9840h~985Fh |  d7 |  d6 |  d5 |  d4 |  d3 |  d2 |  d1 |  d0 |
+| Waveform_Ch4 ⁽³⁾     | r/w  | 9860h~987Fh |  d7 |  d6 |  d5 |  d4 |  d3 |  d2 |  d1 |  d0 |
+###### (3) Channel 5 shares the waveform of channel 4.
