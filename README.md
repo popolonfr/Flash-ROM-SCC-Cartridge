@@ -95,3 +95,6 @@ The cartridge includes an 8-bit unsigned DAC controlled through a single registe
 
 * **DAC_Data**
   * Writing an 8-bit unsigned value to this register sends it to the DAC. This register resides in the same address space as the SCC registers; to access it, segment 3Fh must first be mapped to page 2.
+
+* **Knm_DAC_Ctrl**
+  * When **`D`** = **1**, the Konami-type DAC is enabled. Address 4000h (mirrored through 4FFFh) is then reserved for sample writes. Konami ROMs that write samples to address 5000h must be patched to use address 4000h instead. While the DAC is enabled, the 4000h–4FFFh address range is unavailable for flash memory commands. All other bits are reserved and must be set to **0**.
