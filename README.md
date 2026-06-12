@@ -151,6 +151,8 @@ These registers define the playback frequency of each channel using a 12-bit pit
 
 These registers control the output amplitude of each channel using a 4-bit volume value.
 
+When **`d0`**~**`d3`** = **15**, the volume is at its maximum , and when it = **`0`**, it is silent.
+
 ### Channel control
 
 | REGISTER NAME        | MODE | ADDRESS     |  B7 |  B6 |  B5 |  B4 |  B3 |  B2 |  B1 |  B0 |
@@ -159,4 +161,4 @@ These registers control the output amplitude of each channel using a 4-bit volum
 
 This register enables or disables the output of individual channels.
 
-When **`C`**= **1**, the channel is activated.
+When **`C`** = **1**, the channel is activated.
