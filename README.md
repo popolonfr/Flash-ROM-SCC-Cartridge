@@ -32,7 +32,7 @@ Here you will find all the information concerning the [**Flash ROM SCC cartridge
   * Digital to Analog Converter (Konami compatible)
   * PCB compatible with the Konami SCC cartridge case
 
-## Proprietary Register Overview
+## Proprietary Register Description
 
 | REGISTER NAME        | MODE | ADDRESS(ES) |  B7 |  B6 |  B5 |  B4 |  B3 |  B2 |  B1 |  B0 |
 | ---------------------| ---- | ----------- | --- | --- | --- | --- | --- | --- | --- | --- |
