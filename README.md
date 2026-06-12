@@ -114,10 +114,10 @@ The SCC (Sound Creative Chip) is a 5-channel wavetable sound generator in which 
 
 | REGISTER NAME        | MODE | ADDRESSES   |  B7 |  B6 |  B5 |  B4 |  B3 |  B2 |  B1 |  B0 |
 | ---------------------| ---- | ----------- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Waveform_Ch1         | r/w  | 9800h~981Fh |  d7 |  d6 |  d5 |  d4 |  d3 |  d2 |  d1 |  d0 |
-| Waveform_Ch2         | r/w  | 9820h~983Fh |  d7 |  d6 |  d5 |  d4 |  d3 |  d2 |  d1 |  d0 |
-| Waveform_Ch3         | r/w  | 9840h~985Fh |  d7 |  d6 |  d5 |  d4 |  d3 |  d2 |  d1 |  d0 |
-| Waveform_Ch4 ⁽³⁾     | r/w  | 9860h~987Fh |  d7 |  d6 |  d5 |  d4 |  d3 |  d2 |  d1 |  d0 |
+| Waveform_Ch1         | r/w  | 9800h~981Fh |  S  |  d6 |  d5 |  d4 |  d3 |  d2 |  d1 |  d0 |
+| Waveform_Ch2         | r/w  | 9820h~983Fh |  S  |  d6 |  d5 |  d4 |  d3 |  d2 |  d1 |  d0 |
+| Waveform_Ch3         | r/w  | 9840h~985Fh |  S  |  d6 |  d5 |  d4 |  d3 |  d2 |  d1 |  d0 |
+| Waveform_Ch4 ⁽³⁾     | r/w  | 9860h~987Fh |  S  |  d6 |  d5 |  d4 |  d3 |  d2 |  d1 |  d0 |
 ###### (3) Channel 5 shares the waveform of channel 4.
 
 These registers store the 32-byte waveform played by each channel. Channel 5 shares the waveform of channel 4.
