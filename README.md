@@ -120,6 +120,8 @@ The SCC (Sound Creative Chip) is a 5-channel wavetable sound generator in which 
 | Waveform_Ch4 ⁽³⁾     | r/w  | 9860h~987Fh |  d7 |  d6 |  d5 |  d4 |  d3 |  d2 |  d1 |  d0 |
 ###### (3) Channel 5 shares the waveform of channel 4.
 
+These registers store the 32-byte waveform played by each channel. Channel 5 shares the waveform of channel 4.
+
 ### Frequency control
 
 | REGISTER NAME        | MODE | ADDRESS     |  B7 |  B6 |  B5 |  B4 |  B3 |  B2 |  B1 |  B0 |
@@ -134,3 +136,25 @@ The SCC (Sound Creative Chip) is a 5-channel wavetable sound generator in which 
 | Frequency_Ch4_H      |   w  |   9887h     |     |     |     |     | d11 | d10 |  d9 |  d8 |
 | Frequency_Ch5_L      |   w  |   9888h     |  d7 |  d6 |  d5 |  d4 |  d3 |  d2 |  d1 |  d0 |
 | Frequency_Ch5_H      |   w  |   9889h     |     |     |     |     | d11 | d10 |  d9 |  d8 |
+
+These registers define the playback frequency of each channel using a 12-bit pitch value.
+
+### Volume control
+
+| REGISTER NAME        | MODE | ADDRESS     |  B7 |  B6 |  B5 |  B4 |  B3 |  B2 |  B1 |  B0 |
+| ---------------------| ---- | ----------- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Volume_Ch1           |   w  |   988Ah     |     |     |     |     |  d3 |  d2 |  d1 |  d0 |
+| Volume_Ch2           |   w  |   988Bh     |     |     |     |     |  d3 |  d2 |  d1 |  d0 |
+| Volume_Ch3           |   w  |   988Ch     |     |     |     |     |  d3 |  d2 |  d1 |  d0 |
+| Volume_Ch4           |   w  |   988Dh     |     |     |     |     |  d3 |  d2 |  d1 |  d0 |
+| Volume_Ch5           |   w  |   988Eh     |     |     |     |     |  d3 |  d2 |  d1 |  d0 |
+
+These registers control the output amplitude of each channel using a 4-bit volume value.
+
+### Channel control
+
+| REGISTER NAME        | MODE | ADDRESS     |  B7 |  B6 |  B5 |  B4 |  B3 |  B2 |  B1 |  B0 |
+| ---------------------| ---- | ----------- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Enable_Channel       |   w  |   988Fh     |     |     |     |  C5 |  C4 |  C3 |  C2 |  C1 |
+
+This register enables or disables the output of individual channels.
