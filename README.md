@@ -34,7 +34,7 @@ Here you will find all the information concerning the [**Flash ROM SCC cartridge
 
 ## Proprietary Register Description
 
-| REGISTER NAME        | MODE | ADDRESS(ES) |  B7 |  B6 |  B5 |  B4 |  B3 |  B2 |  B1 |  B0 |
+| REGISTER NAME        | MODE | ADDRESS     |  B7 |  B6 |  B5 |  B4 |  B3 |  B2 |  B1 |  B0 |
 | ---------------------| ---- | ----------- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Offset\_L            |   w  |    3800h    |  d7 |  d6 |  d5 |  d4 |  d3 |  d2 |  d1 |  d0 |
 | Offset\_H            |   w  |    3801h    |     |     | d13 | d12 | d11 | d10 |  d9 |  d8 |
@@ -119,3 +119,18 @@ The SCC (Sound Creative Chip) is a 5-channel wavetable sound generator in which 
 | Waveform_Ch3         | r/w  | 9840h~985Fh |  d7 |  d6 |  d5 |  d4 |  d3 |  d2 |  d1 |  d0 |
 | Waveform_Ch4 ⁽³⁾     | r/w  | 9860h~987Fh |  d7 |  d6 |  d5 |  d4 |  d3 |  d2 |  d1 |  d0 |
 ###### (3) Channel 5 shares the waveform of channel 4.
+
+### Frequency control
+
+| REGISTER NAME        | MODE | ADDRESS     |  B7 |  B6 |  B5 |  B4 |  B3 |  B2 |  B1 |  B0 |
+| ---------------------| ---- | ----------- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Frequency_Ch1_L      |   w  |   9880h     |  d7 |  d6 |  d5 |  d4 |  d3 |  d2 |  d1 |  d0 |
+| Frequency_Ch1_H      |   w  |   9881h     |     |     |     |     | d11 | d10 |  d9 |  d8 |
+| Frequency_Ch2_L      |   w  |   9882h     |  d7 |  d6 |  d5 |  d4 |  d3 |  d2 |  d1 |  d0 |
+| Frequency_Ch2_H      |   w  |   9883h     |     |     |     |     | d11 | d10 |  d9 |  d8 |
+| Frequency_Ch3_L      |   w  |   9884h     |  d7 |  d6 |  d5 |  d4 |  d3 |  d2 |  d1 |  d0 |
+| Frequency_Ch3_H      |   w  |   9885h     |     |     |     |     | d11 | d10 |  d9 |  d8 |
+| Frequency_Ch4_L      |   w  |   9886h     |  d7 |  d6 |  d5 |  d4 |  d3 |  d2 |  d1 |  d0 |
+| Frequency_Ch4_H      |   w  |   9887h     |     |     |     |     | d11 | d10 |  d9 |  d8 |
+| Frequency_Ch5_L      |   w  |   9888h     |  d7 |  d6 |  d5 |  d4 |  d3 |  d2 |  d1 |  d0 |
+| Frequency_Ch5_H      |   w  |   9889h     |     |     |     |     | d11 | d10 |  d9 |  d8 |
