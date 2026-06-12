@@ -94,5 +94,4 @@ Although the hardware initializes the four mapper pages with segments 0, 1, 2, a
 The cartridge includes an 8-bit unsigned DAC controlled through a single register, to which each byte must be written manually at the desired frequency. There are two methods of use: the first is standard, while the second exists only for compatibility with Konami ROMs.
 
 * **DAC_Data**
-  * Writing an 8-bit unsigned value to this register sends it to the DAC.
-  * To access this register, segment 3Fh must first be mapped to page 2.
+  * Writing an 8-bit unsigned value to this register sends it to the DAC. This register resides in the same address space as the SCC registers; to access it, segment 3Fh must first be mapped to page 2.
