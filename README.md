@@ -158,3 +158,5 @@ These registers control the output amplitude of each channel using a 4-bit volum
 | Enable_Channel       |   w  |   988Fh     |     |     |     |  C5 |  C4 |  C3 |  C2 |  C1 |
 
 This register enables or disables the output of individual channels.
+
+When **`C`**=**1**, the channel is activated.
