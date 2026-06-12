@@ -159,4 +159,4 @@ These registers control the output amplitude of each channel using a 4-bit volum
 
 This register enables or disables the output of individual channels.
 
-When **`C`**=**1**, the channel is activated.
+When **`C`**= **1**, the channel is activated.
