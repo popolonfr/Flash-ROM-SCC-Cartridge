@@ -106,7 +106,7 @@ The cartridge includes an 8-bit unsigned DAC controlled through a single registe
 
 ## SCC Register Overview
 
-This section briefly describes the registers of the sound engine, an SCC-compatible sound processor developed by Konami.
+This section briefly describes the registers of the sound engine, an SCC-compatible sound processor developed by Konami. To access it, segment 3Fh must first be mapped to page 2.
 
 The SCC (Sound Creative Chip) is a 5-channel wavetable sound generator in which each channel plays a 32-byte 8-bit waveform stored in RAM, with frequency controlled by a 12-bit pitch register.
 
