@@ -120,7 +120,10 @@ The SCC (Sound Creative Chip) is a 5-channel wavetable sound generator in which 
 | Waveform_Ch4 ⁽³⁾     | r/w  | 9860h~987Fh |  S  |  d6 |  d5 |  d4 |  d3 |  d2 |  d1 |  d0 |
 ###### (3) Channel 5 shares the waveform of channel 4.
 
-These registers store the 32-byte waveform played by each channel.
+These registers store the 32-byte waveform played by each channel. Sample data is stored as 8-bit signed two's-complement values.
+
+When **`S`** = **1**, the sample value is negative. For example, 80h = -128 and FFh = -1.
+
 ### Frequency control
 
 | REGISTER NAME        | MODE | ADDRESS     |  B7 |  B6 |  B5 |  B4 |  B3 |  B2 |  B1 |  B0 |
