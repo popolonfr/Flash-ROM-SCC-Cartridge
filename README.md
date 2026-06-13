@@ -139,19 +139,15 @@ When **`S`** = **1**, the sample value is negative. For example, 80h = -128 and 
 | Frequency_Ch5_L      |   w  |   9888h     |  d7 |  d6 |  d5 |  d4 |  d3 |  d2 |  d1 |  d0 |
 | Frequency_Ch5_H      |   w  |   9889h     |     |     |     |     | d11 | d10 |  d9 |  d8 |
 
-These registers define the playback frequency of each channel via a 12-bit tone period value (TP) contained in bits **`d0`**~**`d11`**.
+These registers define the playback frequency of each channel via a 12-bit tone period value (TP) stored in bits **`d0`**~**`d11`**; a higher TP results in a lower output frequency, while a lower TP produces a higher pitch.
 
-The output frequency is derived from the system clock as follows:
+* The output frequency is derived from the system clock as follows:
 
-$f_{tone} = \frac{f_{clock}}{32 \times (TP + 1)}$
+  * $f_{tone} = \frac{f_{clock}}{32 \times (TP + 1)}$
 
-Conversely, the tone period value can be calculated from a desired frequency:
+* Conversely, the tone period value can be calculated from a desired frequency:
 
-$TP = \left(\frac{f_{clock}}{32 \times f_{tone}}\right) - 1$
-
-
-where TP is the value stored in the register. A higher TP results in a lower output frequency, while a lower TP produces a higher pitch.
-
+  * $TP = \left(\frac{f_{clock}}{32 \times f_{tone}}\right) - 1$
 
 ### Volume control
 
