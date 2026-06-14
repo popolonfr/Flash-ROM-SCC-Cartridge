@@ -149,11 +149,11 @@ These registers define the playback frequency of each channel via a 12-bit tone 
 
 * The output frequency is derived from the system clock as follows:
 
-  * $f_{tone} = \frac{f_{clock}}{32 \times (TP + 1)}$
+  * $f_{tone} = \frac{3579545}{32 \times (TP + 1)}$
 
 * Conversely, the tone period value can be calculated from a desired frequency:
 
-  * $TP = \left(\frac{f_{clock}}{32 \times f_{tone}}\right) - 1$
+  * $TP = \left(\frac{3579545}{32 \times f_{tone}}\right) - 1$
 
 ### Volume control
 
