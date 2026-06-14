@@ -34,18 +34,13 @@ Here you will find all the information concerning the [**Flash ROM SCC cartridge
 
 ## Proprietary Register Description
 
+### Offset
+
 | REGISTER NAME        | MODE | ADDRESS     |  B7 |  B6 |  B5 |  B4 |  B3 |  B2 |  B1 |  B0 |
 | ---------------------| ---- | ----------- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Offset\_L            |   w  |    3800h    |  d7 |  d6 |  d5 |  d4 |  d3 |  d2 |  d1 |  d0 |
 | Offset\_H            |   w  |    3801h    |     |     | d13 | d12 | d11 | d10 |  d9 |  d8 |
 | Offset    (ver 2 MB) |   w  |    3FFFh    |  d7 |  d6 |  d5 |  d4 |  d3 |  d2 |  d1 |  d0 |
-| Operating_Mode       |   w  |    3804h    |     |     |     |     |     |     |   M |   R |
-| Knm_DAC_Data ⁽¹⁾     |   w  |    4000h    |  d7 |  d6 |  d5 |  d4 |  d3 |  d2 |  d1 |  d0 |
-| Knm_DAC_Ctrl ⁽²⁾     |   w  |    98FBh    |     |     |     |   D |     |     |     |     |
-| DAC_Data ⁽²⁾         |   w  |    98FCh    |  d7 |  d6 |  d5 |  d4 |  d3 |  d2 |  d1 |  d0 |
-###### (1) The Konami DAC mode must be selected. (2) Segment 3Fh in page 9000h must be selected.
-
-### Offset
 
 The Offset register specifies the starting location in flash memory for the Mapper registers. Each increment corresponds to an 8 KB block. Therefore, when the Offset is set to **0**, the Mapper registers start at address 0000h in flash memory; when it is set to **1**, they start at address 2000h.
 
@@ -62,6 +57,10 @@ Offset (2 MB edition) is available only in the Basic edition of the cartridge. B
 The default Offset value is **0**.
 
 ### Operating mode
+
+| REGISTER NAME        | MODE | ADDRESS     |  B7 |  B6 |  B5 |  B4 |  B3 |  B2 |  B1 |  B0 |
+| ---------------------| ---- | ----------- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Operating_Mode       |   w  |    3804h    |     |     |     |     |     |     |   M |   R |
 
 This register controls the behavior of the mapper registers. It is implemented only in the Developer and Game cartridge editions. Currently, only bit **`M`** is used. Bit **`R`** is reserved for future use and is not described here.
 
@@ -90,6 +89,13 @@ The default value for **`M`** is **0**.
 Although the hardware initializes the four mapper pages with segments 0, 1, 2, and 3, ROMs designed for this mapper must still perform their own initialization. This is because, when the computer is powered on or reset, the BIOS scans each slot for memory and expansion devices. During this process, it may modify the cartridge's mapper registers by writing to them. Therefore, software must initialize the mapper before relying on its contents or operating mode.
 
 ## Digital-to-Analog Converter (DAC)
+
+| REGISTER NAME        | MODE | ADDRESS     |  B7 |  B6 |  B5 |  B4 |  B3 |  B2 |  B1 |  B0 |
+| ---------------------| ---- | ----------- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Knm_DAC_Data ⁽¹⁾     |   w  |    4000h    |  d7 |  d6 |  d5 |  d4 |  d3 |  d2 |  d1 |  d0 |
+| Knm_DAC_Ctrl ⁽²⁾     |   w  |    98FBh    |     |     |     |   D |     |     |     |     |
+| DAC_Data ⁽²⁾         |   w  |    98FCh    |  d7 |  d6 |  d5 |  d4 |  d3 |  d2 |  d1 |  d0 |
+###### (1) The Konami DAC mode must be selected. (2) Segment 3Fh in page 9000h must be selected.
 
 The cartridge includes an 8-bit unsigned DAC controlled through a single register, to which each byte must be written manually at the desired frequency. There are two methods of use: the first is standard, while the second exists only for compatibility with Konami ROMs.
 
