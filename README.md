@@ -183,6 +183,8 @@ When **`C`** = **1**, the channel is activated.
 
 ## Flash Memory Commands and Entry Points
 
+Flash memory is organized into a specified number of sectors, each with a defined size, depending on the memory type. It provides a set of commands for programming data, erasing individual sectors or the entire chip, and accessing status registers. Flash memory requires an erase operation before any write operation.
+
 ### 2 MB Flash ROM
 
 |                      | MODE | ADDRESS     |  B7 |  B6 |  B5 |  B4 |  B3 |  B2 |  B1 |  B0 |
