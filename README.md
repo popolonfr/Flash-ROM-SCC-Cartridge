@@ -155,6 +155,8 @@ These registers define the playback frequency of each channel via a 12-bit tone 
 
   * $TP = \left(\frac{3579545}{32 \times f_{tone}}\right) - 1$
 
+3,579,545 Hz is the frequency of the Z80
+
 ### Volume control
 
 | REGISTER NAME        | MODE | ADDRESS     |  B7 |  B6 |  B5 |  B4 |  B3 |  B2 |  B1 |  B0 |
