@@ -216,7 +216,7 @@ To execute a command, a sequence of data must be written alternately to two comm
 | Autoselect    | AAH | 55H | 90H |      |     |     |     |
 | Byte Program  | AAH | 55H | A0H | DATA |     |     |     |
 | Chip Erase    | AAH | 55H | 80H | AAH  | 55H | 10H |     |
-| Sector Erase  | AAH | 55H | 80H | AAH  | 55H | SA  | 30H |
+| Sector Erase  | AAH | 55H | 80H | AAH  | 55H | 30H |     |
 | Erase Suspend | B0H |     |     |      |     |     |     |
 | Erase Resume  | 30H |     |     |      |     |     |     |
 
