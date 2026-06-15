@@ -189,7 +189,6 @@ Flash memory is organized into a specified number of sectors, each with a define
 
 |                      | MODE | ADDRESS     |  B7 |  B6 |  B5 |  B4 |  B3 |  B2 |  B1 |  B0 |
 | ---------------------| ---- | ----------- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Flash_STA_Off        |   w  |   4x10h     | *1* | *1* | *1* | *1* | *0* | *0* | *0* | *0* |
 | Flash_CMD_1st        |   w  |   4555h     |  d7 |  d6 |  d5 |  d4 |  d3 |  d2 |  d1 |  d0 |
 | Flash_CMD_2nd        |   w  |   42AAh     |  d7 |  d6 |  d5 |  d4 |  d3 |  d2 |  d1 |  d0 |
 
@@ -197,31 +196,31 @@ Flash memory is organized into a specified number of sectors, each with a define
 
 |                      | MODE | ADDRESS     |  B7 |  B6 |  B5 |  B4 |  B3 |  B2 |  B1 |  B0 |
 | ---------------------| ---- | ----------- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Flash_STA_Off        |   w  |   4x10h     | *1* | *1* | *1* | *1* | *0* | *0* | *0* | *0* |
 | Flash_CMD_1st        |   w  |   4AAAh     |  d7 |  d6 |  d5 |  d4 |  d3 |  d2 |  d1 |  d0 |
 | Flash_CMD_2nd        |   w  |   4555h     |  d7 |  d6 |  d5 |  d4 |  d3 |  d2 |  d1 |  d0 |
 
 ### Status register
 
-The status register provides a set of bits indicating the current operation and its result. This register can be read after each command, replacing the flash memory contents. When access to the flash memory contents is required again in order to issue another command, write F0h (Flash_STA_Off) to address 4x10h to disable status register output.
+The status register provides a set of bits indicating the current operation status and its result. This register can be read after each command, replacing the flash memory contents. When access to the flash memory contents is required again, issue a Reset/Read command to return the flash memory to normal read mode.
 
 ### Command
 
 To execute a command, a sequence of data must be written alternately to two command addresses (Flash_CMD: 1st, 2nd). These addresses depend on the memory type.
 
-| COMMAND       | 1st | 2nd | 1st | 2nd  | 1st | 2nd |
-| ------------- | --- | --- | --- | ---- | --- | --- |
-| Reset/Read    | F0H |     |     |      |     |     |
-| Reset/Read    | AAH | 55H | F0H | RD   |     |     |
-| Autoselect    | AAH | 55H | 90H |      |     |     |
-| Byte Program  | AAH | 55H | A0H | DATA |     |     |
-| Chip Erase    | AAH | 55H | 80H | AAH  | 55H | 10H |
-| Sector Erase  | AAH | 55H | 80H | AAH  | 55H | 30H |
-| Erase Suspend | B0H |     |     |      |     |     |
-| Erase Resume  | 30H |     |     |      |     |     |
+| COMMAND       | 1st | 2nd | 1st | 2nd      | 1st | 2nd     |
+| ------------- | --- | --- | --- | -------- | --- | ------- |
+| Reset/Read    | F0H |     |     |          |     |         |
+| Reset/Read    | AAH | 55H | F0H | RD ⁽⁴⁾   |     |         |
+| Autoselect    | AAH | 55H | 90H |          |     |         |
+| Byte Program  | AAH | 55H | A0H | DATA ⁽⁴⁾ |     |         |
+| Chip Erase    | AAH | 55H | 80H | AAH      | 55H | 10H ⁽⁴⁾ |
+| Sector Erase  | AAH | 55H | 80H | AAH      | 55H | 30H ⁽⁴⁾ |
+| Erase Suspend | B0H |     |     |          |     |         |
+| Erase Resume  | 30H |     |     |          |     |         |
+###### (4) At this stage, the memory address or sector to be accessed must be selected before reading or writing.
 
 * **Autoselect**
-  * This command allows you to retrieve the manufacturer code, device code, and sector protection status. This information replaces the flash memory contents and remains accessible until a Status_OFF command is issued.
+  * This command allows you to retrieve the manufacturer code, device code, and sector protection status. This information replaces the flash memory contents and remains accessible until a Reset/Read command is issued.
 
 * **Chip Erase**
   * Erases the entire memory array except for protected sectors. If an error occurs during the operation, reads from the flash memory will return status information instead of memory contents until a Status_OFF command is issued.
