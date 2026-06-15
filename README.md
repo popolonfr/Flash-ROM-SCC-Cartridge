@@ -209,16 +209,16 @@ The status register provides a set of bits indicating the current operation and 
 
 To execute a command, a sequence of data must be written alternately to two command addresses (Flash_CMD: 1st, 2nd). These addresses depend on the memory type.
 
-| COMMAND       | 1st | 2nd | 1st | 2nd  | 1st | 2nd | 1st |
-| ------------- | --- | --- | --- | ---- | --- | --- | --- |
-| Reset/Read    | F0H |     |     |      |     |     |     |
-| Reset/Read    | AAH | 55H | F0H | RD   |     |     |     |
-| Autoselect    | AAH | 55H | 90H |      |     |     |     |
-| Byte Program  | AAH | 55H | A0H | DATA |     |     |     |
-| Chip Erase    | AAH | 55H | 80H | AAH  | 55H | 10H |     |
-| Sector Erase  | AAH | 55H | 80H | AAH  | 55H | 30H |     |
-| Erase Suspend | B0H |     |     |      |     |     |     |
-| Erase Resume  | 30H |     |     |      |     |     |     |
+| COMMAND       | 1st | 2nd | 1st | 2nd  | 1st | 2nd |
+| ------------- | --- | --- | --- | ---- | --- | --- |
+| Reset/Read    | F0H |     |     |      |     |     |
+| Reset/Read    | AAH | 55H | F0H | RD   |     |     |
+| Autoselect    | AAH | 55H | 90H |      |     |     |
+| Byte Program  | AAH | 55H | A0H | DATA |     |     |
+| Chip Erase    | AAH | 55H | 80H | AAH  | 55H | 10H |
+| Sector Erase  | AAH | 55H | 80H | AAH  | 55H | 30H |
+| Erase Suspend | B0H |     |     |      |     |     |
+| Erase Resume  | 30H |     |     |      |     |     |
 
 * **Autoselect**
   * This command allows you to retrieve the manufacturer code, device code, and sector protection status. This information replaces the flash memory contents and remains accessible until a Status_OFF command is issued.
