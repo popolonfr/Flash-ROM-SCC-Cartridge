@@ -200,3 +200,7 @@ Flash memory is organized into a specified number of sectors, each with a define
 | Flash_STA_Off        |   w  |   4x10h     | *1* | *1* | *1* | *1* | *0* | *0* | *0* | *0* |
 | Flash_CMD_1st        |   w  |   4555h     |  d7 |  d6 |  d5 |  d4 |  d3 |  d2 |  d1 |  d0 |
 | Flash_CMD_2nd        |   w  |   4255h     |  d7 |  d6 |  d5 |  d4 |  d3 |  d2 |  d1 |  d0 |
+
+### Status register
+
+The status register provides a set of bits indicating the current operation and its result. This register can be read after each command, replacing the flash memory contents. When access to the flash memory contents is required again in order to issue another command, write F0h (Flash_STA_Off) to address 4x10h to disable status register output.
