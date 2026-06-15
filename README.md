@@ -222,8 +222,11 @@ To execute a command, a sequence of data must be written alternately to two comm
 * **Autoselect**
   * This command allows you to retrieve the manufacturer code, device code, and sector protection status. This information replaces the flash memory contents and remains accessible until a Reset/Read command is issued.
 
+* **Byte Program**
+  * Programs a byte (it must be empty) of the flash memory.
+
 * **Chip Erase**
   * Erases the entire memory array except for protected sectors. If an error occurs during the operation, reads from the flash memory will return status information instead of memory contents until a Reset/Read command is issued.
 
-* Sector Erase 
+* **Sector Erase** 
   * Erases a sector. Additional sectors can be erased by repeating the last write cycle of the command for each sector address. If an error occurs during the operation, reading from the flash memory will return status information instead of the memory contents until a Reset/Read command is issued.
