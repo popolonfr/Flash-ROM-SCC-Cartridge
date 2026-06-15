@@ -219,3 +219,9 @@ To execute a command, a sequence of data must be written alternately to two comm
 | Sector Erase  | AAH | 55H | 80H | AAH  | 55H | SA  | 30H |
 | Erase Suspend | B0H |     |     |      |     |     |     |
 | Erase Resume  | 30H |     |     |      |     |     |     |
+
+* **Autoselect**
+  * This command allows you to retrieve the manufacturer code, device code, and sector protection status. This information replaces the flash memory contents and remains accessible until a Status_OFF command is issued.
+
+* **Chip Erase**
+  * Erases the entire memory array except for protected sectors. If an error occurs during the operation, reads from the flash memory will return status information instead of memory contents until a Status_OFF command is issued.
