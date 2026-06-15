@@ -204,3 +204,18 @@ Flash memory is organized into a specified number of sectors, each with a define
 ### Status register
 
 The status register provides a set of bits indicating the current operation and its result. This register can be read after each command, replacing the flash memory contents. When access to the flash memory contents is required again in order to issue another command, write F0h (Flash_STA_Off) to address 4x10h to disable status register output.
+
+### Command
+
+To execute a command, a sequence of data must be written alternately to two command addresses (Flash_CMD: 1st, 2nd). These addresses depend on the memory type.
+
+| COMMAND       | 1st | 2nd | 1st | 2nd  | 1st | 2nd | 1st |
+| ------------- | --- | --- | --- | ---- | --- | --- | --- |
+| Reset/Read    | F0H |     |     |      |     |     |     |
+| Reset/Read    | AAH | 55H | F0H | RD   |     |     |     |
+| Autoselect    | AAH | 55H | 90H |      |     |     |     |
+| Byte Program  | AAH | 55H | A0H | DATA |     |     |     |
+| Chip Erase    | AAH | 55H | 80H | AAH  | 55H | 10H |     |
+| Sector Erase  | AAH | 55H | 80H | AAH  | 55H | SA  | 30H |
+| Erase Suspend | B0H |     |     |      |     |     |     |
+| Erase Resume  | 30H |     |     |      |     |     |     |
