@@ -190,16 +190,16 @@ Flash memory is organized into a specified number of sectors, each with a define
 |                      | MODE | ADDRESS     |  B7 |  B6 |  B5 |  B4 |  B3 |  B2 |  B1 |  B0 |
 | ---------------------| ---- | ----------- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Flash_STA_Off        |   w  |   4x10h     | *1* | *1* | *1* | *1* | *0* | *0* | *0* | *0* |
-| Flash_CMD_1st        |   w  |   4xAAh     |  d7 |  d6 |  d5 |  d4 |  d3 |  d2 |  d1 |  d0 |
-| Flash_CMD_2nd        |   w  |   4x55h     |  d7 |  d6 |  d5 |  d4 |  d3 |  d2 |  d1 |  d0 |
+| Flash_CMD_1st        |   w  |   4555h     |  d7 |  d6 |  d5 |  d4 |  d3 |  d2 |  d1 |  d0 |
+| Flash_CMD_2nd        |   w  |   42AAh     |  d7 |  d6 |  d5 |  d4 |  d3 |  d2 |  d1 |  d0 |
 
 ### 16 MB Flash ROM
 
 |                      | MODE | ADDRESS     |  B7 |  B6 |  B5 |  B4 |  B3 |  B2 |  B1 |  B0 |
 | ---------------------| ---- | ----------- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Flash_STA_Off        |   w  |   4x10h     | *1* | *1* | *1* | *1* | *0* | *0* | *0* | *0* |
-| Flash_CMD_1st        |   w  |   4555h     |  d7 |  d6 |  d5 |  d4 |  d3 |  d2 |  d1 |  d0 |
-| Flash_CMD_2nd        |   w  |   4255h     |  d7 |  d6 |  d5 |  d4 |  d3 |  d2 |  d1 |  d0 |
+| Flash_CMD_1st        |   w  |   4AAAh     |  d7 |  d6 |  d5 |  d4 |  d3 |  d2 |  d1 |  d0 |
+| Flash_CMD_2nd        |   w  |   4555h     |  d7 |  d6 |  d5 |  d4 |  d3 |  d2 |  d1 |  d0 |
 
 ### Status register
 
