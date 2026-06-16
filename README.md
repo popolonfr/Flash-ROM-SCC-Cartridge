@@ -209,8 +209,8 @@ To execute a command, a sequence of data must be written alternately to two comm
 
 | COMMAND       | 1st | 2nd | 1st | 2nd      | 1st | 2nd     |
 | ------------- | --- | --- | --- | -------- | --- | ------- |
-| Reset/Read    | F0H |     |     |          |     |         |
-| Reset/Read    | AAH | 55H | F0H | RD ⁽⁴⁾   |     |         |
+| **Reset**/Read| F0H |     |     |          |     |         |
+| Reset/**Read**| AAH | 55H | F0H | RD ⁽⁴⁾   |     |         |
 | Autoselect    | AAH | 55H | 90H |          |     |         |
 | Byte Program  | AAH | 55H | A0H | DATA ⁽⁴⁾ |     |         |
 | Chip Erase    | AAH | 55H | 80H | AAH      | 55H | 10H ⁽⁴⁾ |
