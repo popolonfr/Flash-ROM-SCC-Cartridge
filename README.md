@@ -34,6 +34,15 @@ Here you will find all the information concerning the [**Flash ROM SCC cartridge
 
 ## Proprietary Register Description
 
+### Rom mapper
+
+| REGISTER NAME        | MODE | ADRESS IN 8-BIT MODE | ADRESSES IN 16-BIT MODE | MIRROR RANGE |
+| ---------------------| ---- | -------------------- | ----------------------- | ------------ |
+| Page_0               |   w  | 5000h                | 5000h~5001h             | 5000h–57FFh  |
+| Page_1               |   w  | 7000h                | 7000h~7001h             | 7000h–77FFh  |
+| Page_2               |   w  | 9000h                | 9000h~9001h             | 9000h–97FFh  |
+| Page_3               |   w  | B000h                | B000h~B002h             | B000h–B7FFh  |
+
 ### Offset
 
 | REGISTER NAME        | MODE | ADDRESS     |  B7 |  B6 |  B5 |  B4 |  B3 |  B2 |  B1 |  B0 |
@@ -67,22 +76,20 @@ This register controls the behavior of the mapper registers. It is implemented o
 * **Mapper in 8-bit mode**
   * When **`M`** = **0**, the mapper operates in 8-bit mode, allowing up to 256 segments of 8 KB each. This mode is fully compatible with the Konami SCC Mapper. A segment is assigned to one of the four pages by writing an 8-bit value to the register associated with that page.
 
-    | PAGE | ADRESS | MIRROR RANGE |
-    | ---- | ------ | ------------ |
-    | 0    | 5000h  | 5000h–57FFh  |
-    | 1    | 7000h  | 7000h–77FFh  |
-    | 2    | 9000h  | 9000h–97FFh  |
-    | 3    | B000h  | B000h–B7FFh  |
+  * **Register size 1 byte**
+    * 5000h
+    * 7000h
+    * 9000h
+    * B000h 
 
 * **Mapper in 16-bit mode.**
   * When  **`M`** = **1**, the mapper operates in 16-bit mode, allowing up to 16,384 segments of 8 KB each. A segment is assigned to one of the four pages by writing a 16-bit value to the register associated with that page.
 
-    | PAGE | ADRESSES     | MIRROR RANGE |
-    | ---- | ------------ | ------------ |
-    | 0    | 5000h~5001h  | 5000h–57FFh  |
-    | 1    | 7000h~7001h  | 7000h–77FFh  |
-    | 2    | 9000h~9001h  | 9000h–97FFh  |
-    | 3    | B000h~B002h  | B000h–B7FFh  |
+  * **Register size 2 bytes**
+    * 5000h~5001h
+    * 7000h~7001h
+    * 9000h~9001h
+    * B000h~B002h
 
 The default value for **`M`** is **0**.
 
