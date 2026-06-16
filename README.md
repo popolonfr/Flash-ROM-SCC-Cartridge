@@ -223,7 +223,7 @@ To execute a command, a sequence of data must be written alternately to two comm
   * This command allows you to retrieve the manufacturer code, device code, and sector protection status. This information replaces the flash memory contents and remains accessible until a Reset/Read command is issued.
 
 * **Byte Program**
-  * Programs a byte (it must be empty) of the flash memory.
+  * Programs a byte of Flash memory (the target byte must be erased beforehand). A program command must be issued for each byte written. Since the write address space overlaps with the Flash memory segment selection register, this register must first be used to select the target segment. The program command must then be reissued for each subsequent byte write, and the original segment selection must be restored immediately afterward. This behavior is specific to the cartridge hardware.
 
 * **Chip Erase**
   * Erases the entire memory array except for protected sectors. If an error occurs during the operation, reads from the flash memory will return status information instead of memory contents until a Reset/Read command is issued.
