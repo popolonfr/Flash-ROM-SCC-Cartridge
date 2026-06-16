@@ -233,3 +233,8 @@ To execute a command, a sequence of data must be written alternately to two comm
 
 * **Sector Erase** 
   * Erases a sector. Additional sectors can be erased by repeating the last write cycle of the command for each sector address. If an error occurs during the operation, reading from the flash memory will return status information instead of the memory contents until a Reset/Read command is issued.
+
+* **Erase Suspend**
+  * Temporarily suspends an ongoing sector erase operation. While the erase is suspended, data can be read from or programmed to other sectors. The erase operation can later be resumed using the Erase Resume command (30h).
+
+      This command is only valid during a sector erase operation.
