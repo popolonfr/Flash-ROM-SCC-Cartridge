@@ -238,3 +238,6 @@ To execute a command, a sequence of data must be written alternately to two comm
   * Temporarily suspends an ongoing sector erase operation. While the erase is suspended, data can be read from or programmed to other sectors. The erase operation can later be resumed using the Erase Resume command (30h).
 
       This command is only valid during a sector erase operation.
+
+* **Erase Resume**
+  * Resumes a sector erase operation previously suspended with the Erase Suspend command. The device must be in Read mode for this command to be accepted.
