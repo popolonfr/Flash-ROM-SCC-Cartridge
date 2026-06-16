@@ -219,7 +219,7 @@ To execute a command, a sequence of data must be written alternately to two comm
 | Erase Resume  | 30H |     |     |          |     |         |
 ###### (4) At this stage, the memory address or sector to be accessed must be selected before reading or writing.
 
-* Reset/Read
+* **Reset/Read**
   * There are two ways to achieve the same result: a short version and a long version. The short version is sufficient in most cases: writing F0h exits Status mode and returns the device to Read mode. The long version requires issuing an extended command sequence that includes the address of the memory location to be read.
 
 * **Autoselect**
