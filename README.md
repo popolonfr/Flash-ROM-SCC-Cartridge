@@ -36,14 +36,14 @@ Here you will find all the information concerning the [**Flash ROM SCC cartridge
 
 ### Rom mapper
 
-The cartridge uses a Konami SCC mapper, allowing up to 2 MB of ROM to be accessed through 8 KB segments. Four independent memory pages can be mapped, each selecting a different ROM segment.
-
 | REGISTER NAME        | MODE | ADRESS IN 8-BIT MODE | ADRESSES IN 16-BIT MODE | MIRROR RANGE |
 | ---------------------| ---- | -------------------- | ----------------------- | ------------ |
 | Page_0               |   w  | 5000h                | 5000h~5001h             | 5000h–57FFh  |
 | Page_1               |   w  | 7000h                | 7000h~7001h             | 7000h–77FFh  |
 | Page_2               |   w  | 9000h                | 9000h~9001h             | 9000h–97FFh  |
 | Page_3               |   w  | B000h                | B000h~B002h             | B000h–B7FFh  |
+
+The cartridge uses a Konami SCC mapper, allowing up to 2 MB of ROM to be accessed through 8 KB segments. Four independent memory pages can be mapped, each selecting a different ROM segment. To overcome both the 2 MB limit on segments that can be selected simultaneously through the page mechanism and the limited flexibility of the Offset, a cartridge-specific 16-bit mode has been added. This mode extends the mapper's registers (see the Operating Mode section).
 
 ### Offset
 
