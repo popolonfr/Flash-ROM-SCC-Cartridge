@@ -45,9 +45,9 @@ Here you will find all the information concerning the [**Flash ROM SCC cartridge
 
 The cartridge uses a Konami SCC mapper, providing access to up to 2 MB of ROM through 8 KB segments. Four independent 8 KB memory pages can be mapped, each selecting one segment from the ROM. Because the mapper uses 8-bit page registers, only 256 segments (2 MB) can be addressed. To overcome this limitation, and the limited flexibility of the offset, a cartridge-specific 16-bit mode was added to the Game Edition and Developer Edition. This mode extends the mapper's registers (see the "Operating Mode" section).
 
-The default values ​​are `Page_0` = **0**, `Page_1` = **1**, `Page_2` = **2**, `Page_3` = **3**.
-
 Although the hardware initializes the four mapper pages with segments 0, 1, 2, and 3, ROMs designed for this mapper must still perform their own initialization. When the computer is powered on or reset, the BIOS scans each slot for memory and expansion devices. During this process, it may modify the cartridge's mapper registers by writing to them, with page_2 being particularly affected on some MSX models. Therefore, software must initialize the mapper before relying on its register contents or operating mode.
+
+The default values ​​are `Page_0` = **0**, `Page_1` = **1**, `Page_2` = **2**, `Page_3` = **3**.
 
 ### Offset
 
