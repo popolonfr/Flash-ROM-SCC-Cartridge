@@ -51,7 +51,7 @@ The cartridge uses a Konami SCC mapper, providing access to up to 2 MB of ROM th
   * Page_2 = 2
   * Page_3 = 3
 
-Note that, depending on the MSX computer, some mapper registers may be modified during initialization as the BIOS accesses all slots. This is often the case for page_2.
+Although the hardware initializes the four mapper pages with segments 0, 1, 2, and 3, ROMs designed for this mapper must still perform their own initialization. When the computer is powered on or reset, the BIOS scans each slot for memory and expansion devices. During this process, it may modify the cartridge's mapper registers by writing to them, with page_2 being particularly affected on some MSX models. Therefore, software must initialize the mapper before relying on its register contents or operating mode.
 
 ### Offset
 
@@ -102,8 +102,6 @@ This register controls the behavior of the mapper registers. It is implemented o
     * B000h~B002h
 
 The default value for **`M`** is **0**.
-
-Although the hardware initializes the four mapper pages with segments 0, 1, 2, and 3, ROMs designed for this mapper must still perform their own initialization. This is because, when the computer is powered on or reset, the BIOS scans each slot for memory and expansion devices. During this process, it may modify the cartridge's mapper registers by writing to them. Therefore, software must initialize the mapper before relying on its contents or operating mode.
 
 ## Digital-to-Analog Converter (DAC)
 
