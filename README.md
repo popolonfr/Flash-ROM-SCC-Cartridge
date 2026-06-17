@@ -43,7 +43,7 @@ Here you will find all the information concerning the [**Flash ROM SCC cartridge
 | Page_2               |   w  | 9000h                | 9000h~9001h             | 9000h–97FFh  |
 | Page_3               |   w  | B000h                | B000h~B002h             | B000h–B7FFh  |
 
-The cartridge uses a Konami SCC mapper, allowing up to 2 MB of ROM to be accessed through 8 KB segments. Four independent memory pages can be mapped, each selecting a different ROM segment. To overcome both the 2 MB limit on segments that can be selected simultaneously through the page mechanism and the limited flexibility of the Offset, a cartridge-specific 16-bit mode has been added. This mode extends the mapper's registers (see the Operating Mode section).
+The cartridge uses a Konami SCC mapper, providing access to up to 2 MB of ROM through 8 KB segments. Four independent 8 KB memory pages can be mapped, each selecting one segment from the ROM. Because the mapper uses 8-bit page registers, only 256 segments (2 MB) can be addressed. To overcome this limitation, and the limited flexibility of the offset, a cartridge-specific 16-bit mode was added to the Game Edition and Developer Edition. This mode extends the mapper's registers (see the "Operating Mode" section).
 
 ### Offset
 
