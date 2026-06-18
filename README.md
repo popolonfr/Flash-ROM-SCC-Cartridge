@@ -14,20 +14,20 @@ Four editions are available:
 
 * **Basic Edition**
   * Offset Register
-  * 2 MB of flash memory
+  * 2 MB of Flash memory
   * Konami SCC (mapper and sound engine)
   * PCB compatible with the Konami SCC cartridge case
 
 * **Multi-ROM Edition**
   * Offset Register
-  * 16 MB of flash memory
+  * 16 MB of Flash memory
   * Konami SCC (mapper and sound engine)
   * 8-bit Digital-to-Analog Converter (Konami-compatible)
   * PCB compatible with the Konami SCC cartridge case
 
 * **Game Edition** (Large-Capacity Game)
   * Extended 16-bit mapper registers
-  * 16 MB of flash memory
+  * 16 MB of Flash memory
   * Konami SCC (mapper and sound engine)
   * 8-bit Digital-to-Analog Converter (Konami-compatible)
   * PCB compatible with the Konami SCC cartridge case
@@ -65,17 +65,17 @@ The default values ​​are `Page_0` = **0**, `Page_1` = **1**, `Page_2` = **2*
 | Offset\_H            |   w  |    3801h    |     |     | d13 | d12 | d11 | d10 |  d9 |  d8 |
 | Offset    (ver 2 MB) |   w  |    3FFFh    |  d7 |  d6 |  d5 |  d4 |  d3 |  d2 |  d1 |  d0 |
 
-The Offset register specifies the starting location in flash memory for the Mapper registers. Each increment corresponds to an 8 KB block. Therefore, when the Offset is set to **0**, the Mapper registers start at address 0000h in flash memory; when it is set to **1**, they start at address 2000h.
+The Offset register specifies the starting location in Flash memory for the Mapper registers. Each increment corresponds to an 8 KB block. Therefore, when the Offset is set to **0**, the Mapper registers start at address 0000h in Flash memory; when it is set to **1**, they start at address 2000h.
 
-The Offset value is immediately added to all Mapper register values. If a value exceeding the size of the flash memory is assigned, the address pointer will wrap around to the beginning of the memory.
+The Offset value is immediately added to all Mapper register values. If a value exceeding the size of the Flash memory is assigned, the address pointer will wrap around to the beginning of the memory.
 
-This register is only useful for ROM compilations, as it allows the position of a ROM within flash memory to be specified and maps the Mapper registers to the ROM's first segment.
+This register is only useful for ROM compilations, as it allows the position of a ROM within Flash memory to be specified and maps the Mapper registers to the ROM's first segment.
 
 The number of SCC Mapper segments accessible to the ROM remains limited to 256, making this feature unsuitable for large ROMs that require additional segments. In such cases, the extended 16-bit Mapper registers available in the developer and Game editions of the cartridge must be used.
 
-Offset_L and Offset_H form a single register and are available only in the Developer, Game and Multi-ROM editions of the cartridge. Bits d0 through d13 represent the number of an 8 KB segment and allow addressing of up to 128 MB of flash memory. The cartridge currently uses only 16 MB of flash memory. This register is accessible at addresses 3800h and 3801h and is mirrored from 3802h through 3FFFh.
+Offset_L and Offset_H form a single register and are available only in the Developer, Game and Multi-ROM editions of the cartridge. Bits d0 through d13 represent the number of an 8 KB segment and allow addressing of up to 128 MB of Flash memory. The cartridge currently uses only 16 MB of Flash memory. This register is accessible at addresses 3800h and 3801h and is mirrored from 3802h through 3FFFh.
 
-Offset (2 MB edition) is available only in the Basic edition of the cartridge. Bits d0 through d7 represent the number of an 8 KB segment and allow addressing of up to 2 MB of flash memory. This register is accessible only at address 3FFFh.
+Offset (2 MB edition) is available only in the Basic edition of the cartridge. Bits d0 through d7 represent the number of an 8 KB segment and allow addressing of up to 2 MB of Flash memory. This register is accessible only at address 3FFFh.
 
 The default Offset value is **0**.
 
@@ -122,7 +122,7 @@ The cartridge includes an 8-bit unsigned DAC controlled through a single registe
   * Writing an 8-bit unsigned value to this register sends it to the DAC. This register resides in the same address space as the SCC registers; to access it, segment 3Fh must first be mapped to page 2.
 
 * **Knm_DAC_Ctrl**
-  * When **`D`** = **1**, the Konami-type DAC is enabled. Address 4000h (mirrored through 4FFFh) is then reserved for sample writes. Konami ROMs that write samples to address 5000h must be patched to use address 4000h instead. While the DAC is enabled, the 4000h–4FFFh address range is unavailable for flash memory commands. This register resides in the same address space as the SCC registers; to access it, segment 3Fh must first be mapped to page 2.
+  * When **`D`** = **1**, the Konami-type DAC is enabled. Address 4000h (mirrored through 4FFFh) is then reserved for sample writes. Konami ROMs that write samples to address 5000h must be patched to use address 4000h instead. While the DAC is enabled, the 4000h–4FFFh address range is unavailable for Flash memory commands. This register resides in the same address space as the SCC registers; to access it, segment 3Fh must first be mapped to page 2.
 
     All other bits are reserved and must be set to **0**.
 
@@ -220,7 +220,7 @@ Flash memory is organized into a specified number of sectors, each with a define
 
 ### Status register
 
-The status register provides a set of bits indicating the current operation status and its result. This register can be read after each command, replacing the flash memory contents. When access to the flash memory contents is required again, issue a Reset/Read command to return the flash memory to normal read mode.
+The status register provides a set of bits indicating the current operation status and its result. This register can be read after each command, replacing the Flash memory contents. When access to the Flash memory contents is required again, issue a Reset/Read command to return the Flash memory to normal read mode.
 
 ### Command
 
@@ -242,16 +242,16 @@ To execute a command, a sequence of data must be written alternately to two comm
   * There are two ways to achieve the same result: a short version and a long version. The short version is sufficient in most cases: writing F0h exits Status mode and returns the device to Read mode. The long version requires issuing an extended command sequence that includes the address of the memory location to be read.
 
 * **Autoselect**
-  * This command allows you to retrieve the manufacturer code, device code, and sector protection status. This information replaces the flash memory contents and remains accessible until a Reset/Read command is issued.
+  * This command allows you to retrieve the manufacturer code, device code, and sector protection status. This information replaces the Flash memory contents and remains accessible until a Reset/Read command is issued.
 
 * **Byte Program**
   * Programs a byte of Flash memory (the target byte must be erased beforehand). A program command must be issued for each byte written. Since the write address space overlaps with the Flash memory segment selection register, this register must first be used to select the target segment. The program command must then be reissued for each subsequent byte write, and the original segment selection must be restored immediately afterward. This behavior is specific to the cartridge hardware.
 
 * **Chip Erase**
-  * Erases the entire memory array except for protected sectors. If an error occurs during the operation, reads from the flash memory will return status information instead of memory contents until a Reset/Read command is issued.
+  * Erases the entire memory array except for protected sectors. If an error occurs during the operation, reads from the Flash memory will return status information instead of memory contents until a Reset/Read command is issued.
 
 * **Sector Erase** 
-  * Erases a sector. Additional sectors can be erased by repeating the last write cycle of the command for each sector address. If an error occurs during the operation, reading from the flash memory will return status information instead of the memory contents until a Reset/Read command is issued.
+  * Erases a sector. Additional sectors can be erased by repeating the last write cycle of the command for each sector address. If an error occurs during the operation, reading from the Flash memory will return status information instead of the memory contents until a Reset/Read command is issued.
 
 * **Erase Suspend**
   * Temporarily suspends an ongoing sector erase operation. While the erase is suspended, data can be read from or programmed to other sectors. The erase operation can later be resumed using the Erase Resume command (30h).
