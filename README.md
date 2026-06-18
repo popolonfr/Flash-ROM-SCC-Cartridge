@@ -10,32 +10,34 @@ It can be used to store multiple ROMs or MegaROMs in a single cartridge with a c
 
 Two free software tools are included. The first allows you to create multi-ROM cartridges with an integrated selection menu. The second allows you to load, convert, and program standard ROM images onto the cartridge.
 
+Four editions are available:
+
 * **Basic Edition**
   * Offset Register
   * 2 MB of flash memory
-  * Konami SCC (Mapper & Sound Engine)
+  * Konami SCC (mapper and sound engine)
   * PCB compatible with the Konami SCC cartridge case
 
 * **Multi-ROM Edition**
   * Offset Register
   * 16 MB of flash memory
-  * Konami SCC (Mapper & Sound Engine)
-  * Digital to Analog Converter (Konami compatible)
+  * Konami SCC (mapper and sound engine)
+  * 8-bit Digital-to-Analog Converter (Konami-compatible)
   * PCB compatible with the Konami SCC cartridge case
 
 * **Game Edition** (Large-Capacity Game)
-  * extended 16-bit Mapper registers for the ROM Mapper
+  * Extended 16-bit mapper registers
   * 16 MB of flash memory
-  * Konami SCC (Mapper & Sound Engine)
-  * Digital to Analog Converter (Konami compatible)
+  * Konami SCC (mapper and sound engine)
+  * 8-bit Digital-to-Analog Converter (Konami-compatible)
   * PCB compatible with the Konami SCC cartridge case
 
 * **Developer Edition**
   * Offset Register
-  * extended 16-bit Mapper registers for the ROM Mapper
-  * 16 MB of flash memory
-  * Konami SCC (Mapper & Sound Engine)
-  * Digital to Analog Converter (Konami compatible)
+  * Extended 16-bit mapper registers
+  * 16 MB of Flash memory
+  * Konami SCC (mapper and sound engine)
+  * 8-bit Digital-to-Analog Converter (Konami-compatible)
   * PCB compatible with the Konami SCC cartridge case
 
 ## Proprietary Register Description
