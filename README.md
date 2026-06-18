@@ -43,6 +43,15 @@ The cartridge is available in the following editions:
   * Capacitive touch button (prevents the ROM from booting at startup)
   * PCB compatible with the Konami SCC cartridge case
 
+#### Minimum Requirements
+ * MSX1 computer with at least 8 kB of RAM
+ * One free cartridge slot (the -/+12 V lines are not used)
+ * Disk drive
+
+#### Loader Requirements
+* MSX-DOS 1/2: 64 kB RAM minimum
+* MSX-DOS 2 or Nextor: 128 kB RAM minimum
+
 ## Proprietary Register Description
 
 ### Rom mapper
