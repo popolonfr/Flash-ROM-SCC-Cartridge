@@ -264,4 +264,4 @@ To execute a command, a sequence of data must be written alternately to two comm
 * **Erase Resume**
   * Resumes a sector erase operation previously suspended with the Erase Suspend command. The device must be in Read mode for this command to be accepted.
  
-© 2025 popolon-fr
+© 2026 popolon-fr
