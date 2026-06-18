@@ -1,8 +1,14 @@
 # Flash-ROM-SCC-Cartridge
 
+Here you will find all the information concerning the [**Flash ROM SCC cartridge**](https://www.msx.org/wiki/Popolon-fr_Flash-ROM_SCC_Cartridge), from its use to the technical specifications for different models and their specific access points for memory and sound management.
+
 ## Description
 
-Here you will find all the information concerning the [**Flash ROM SCC cartridge**](https://www.msx.org/wiki/Popolon-fr_Flash-ROM_SCC_Cartridge), from its use to the technical specifications for different models and their specific access points for memory and sound management.
+This cartridge provides 2 MB, 16 MB, or more of Flash memory expansion, an advanced memory mapping system, an 8-bit audio DAC, and full compatibility with the Konami SCC sound chip. It is designed for use with standard MSX computers.
+
+It can be used to store multiple ROMs or MegaROMs in a single cartridge with a convenient selection menu, or as a platform for next-generation games requiring large amounts of memory.
+
+Two free software tools are included. The first allows you to create multi-ROM cartridges with an integrated selection menu. The second allows you to load, convert, and program standard ROM images onto the cartridge.
 
 * **Basic Edition**
   * Offset Register
