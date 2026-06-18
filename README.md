@@ -16,6 +16,7 @@ The cartridge is available in the following editions:
   * Offset Register
   * 2 MB of Flash memory
   * Konami SCC (mapper and sound engine)
+  * Capacitive touch button (prevents the ROM from booting at startup)
   * PCB compatible with the Konami SCC cartridge case
 
 * **Multi-ROM Edition**
@@ -23,6 +24,7 @@ The cartridge is available in the following editions:
   * 16 MB of Flash memory
   * Konami SCC (mapper and sound engine)
   * 8-bit Digital-to-Analog Converter (Konami-compatible)
+  * Capacitive touch button (prevents the ROM from booting at startup)
   * PCB compatible with the Konami SCC cartridge case
 
 * **Game Edition** (Large-Capacity Game)
@@ -38,6 +40,7 @@ The cartridge is available in the following editions:
   * 16 MB of Flash memory
   * Konami SCC (mapper and sound engine)
   * 8-bit Digital-to-Analog Converter (Konami-compatible)
+  * Capacitive touch button (prevents the ROM from booting at startup)
   * PCB compatible with the Konami SCC cartridge case
 
 ## Proprietary Register Description
