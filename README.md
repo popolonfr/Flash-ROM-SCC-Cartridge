@@ -10,6 +10,9 @@ It can be used to store multiple ROMs or MegaROMs in a single cartridge with a c
 
 Two free software tools are included. The first allows you to create multi-ROM cartridges with an integrated selection menu. The second allows you to load, convert, and program standard ROM images onto the cartridge.
 
+* [**Roms-Collection-Maker**](https://github.com/popolonfr/Roms-Collection-Maker)
+* [**FLX**](https://github.com/popolonfr/FLX)
+
 The cartridge is available in the following editions:
 
 * **Basic Edition**
