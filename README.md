@@ -57,6 +57,10 @@ The cartridge is available in the following editions:
 
 ### Register Access
 
+To read from or write to a cartridge register, you must first select the slot containing the cartridge. Once the slot is selected, the register can be accessed by reading from or writing to its address.
+
+Registers below 4000h are typically accessed through the BIOS inter-slot routines, as the BIOS is usually mapped in this address range. Registers above 4000h, however, can be accessed directly after the slot has been selected, eliminating the need for repeated inter-slot operations.
+
 ## Proprietary register description
 
 These are the registers specific to the cartridge, as well as those that extend the original hardware functionality, such as the SCC mapper.
