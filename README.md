@@ -130,7 +130,7 @@ This register controls the behavior of the mapper registers. It is implemented o
 
 The default value for **`M`** is **0**.
 
-### Digital-to-analog converter (DAC)
+#### Digital-to-analog converter (DAC)
 
 | REGISTER NAME        | MODE | ADDRESS     |  B7 |  B6 |  B5 |  B4 |  B3 |  B2 |  B1 |  B0 |
 | ---------------------| ---- | ----------- | --- | --- | --- | --- | --- | --- | --- | --- |
