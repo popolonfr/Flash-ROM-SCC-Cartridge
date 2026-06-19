@@ -57,6 +57,8 @@ The cartridge is available in the following editions:
 
 ## Proprietary register description
 
+These are the registers specific to the cartridge, as well as those that extend the original hardware functionality, such as the SCC mapper.
+
 ### ROM mapper
 
 | REGISTER NAME        | MODE | ADRESS IN 8-BIT MODE | ADRESSES IN 16-BIT MODE | MIRROR RANGE |
