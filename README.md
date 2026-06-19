@@ -55,17 +55,17 @@ The cartridge is available in the following editions:
    * MSX-DOS 1/2: 64 kB RAM minimum
    * MSX-DOS 2 or Nextor: 128 kB RAM minimum
 
-### Register Access
+## Register Access
 
 To read from or write to a cartridge register, you must first select the slot containing the cartridge. Once the slot is selected, the register can be accessed by reading from or writing to its address.
 
 Registers below 4000h are typically accessed through the BIOS inter-slot routines, as the BIOS is usually mapped in this address range. Registers above 4000h, however, can be accessed directly after the slot has been selected, eliminating the need for repeated inter-slot operations.
 
-## Proprietary register description
+### Proprietary register
 
 These are the registers specific to the cartridge, as well as those that extend the original hardware functionality, such as the SCC mapper.
 
-### ROM mapper
+#### ROM mapper
 
 | REGISTER NAME        | MODE | ADRESS IN 8-BIT MODE | ADRESSES IN 16-BIT MODE | MIRROR RANGE |
 | ---------------------| ---- | -------------------- | ----------------------- | ------------ |
@@ -80,7 +80,7 @@ Although the hardware initializes the four mapper pages with segments 0, 1, 2, a
 
 The default values ​​are `Page_0` = **0**, `Page_1` = **1**, `Page_2` = **2**, `Page_3` = **3**.
 
-### Offset
+#### Offset
 
 | REGISTER NAME        | MODE | ADDRESS     |  B7 |  B6 |  B5 |  B4 |  B3 |  B2 |  B1 |  B0 |
 | ---------------------| ---- | ----------- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -102,7 +102,7 @@ Offset (2 MB edition) is available only in the Basic edition of the cartridge. B
 
 The default Offset value is **0**.
 
-### Operating mode
+#### Operating mode
 
 | REGISTER NAME        | MODE | ADDRESS     |  B7 |  B6 |  B5 |  B4 |  B3 |  B2 |  B1 |  B0 |
 | ---------------------| ---- | ----------- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -130,7 +130,7 @@ This register controls the behavior of the mapper registers. It is implemented o
 
 The default value for **`M`** is **0**.
 
-## Digital-to-analog converter (DAC)
+### Digital-to-analog converter (DAC)
 
 | REGISTER NAME        | MODE | ADDRESS     |  B7 |  B6 |  B5 |  B4 |  B3 |  B2 |  B1 |  B0 |
 | ---------------------| ---- | ----------- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -153,13 +153,13 @@ The cartridge includes an 8-bit unsigned DAC controlled through a single registe
 * **Knm_DAC_Data**
   * Writing an 8-bit unsigned value to this register sends it to the DAC. This register is available only when the Konami-type DAC is enabled (see the Knm_DAC_Ctrl register).
 
-## SCC register overview
+### SCC register overview
 
 This section briefly describes the registers of the sound engine, an SCC-compatible sound processor developed by Konami. To access it, segment 3Fh must first be mapped to page 2.
 
 The SCC (Sound Creative Chip) is a 5-channel wavetable sound generator in which each channel plays a 32-byte 8-bit waveform stored in RAM, with frequency controlled by a 12-bit pitch register.
 
-### Waveform control
+#### Waveform control
 
 | REGISTER NAME        | MODE | ADDRESSES   |  B7 |  B6 |  B5 |  B4 |  B3 |  B2 |  B1 |  B0 |
 | ---------------------| ---- | ----------- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -174,7 +174,7 @@ These registers store the 32-byte waveform played by each channel. Sample data i
 
 When **`S`** = **1**, the sample value is negative. For example, 80h = -128 and FFh = -1.
 
-### Frequency control
+#### Frequency control
 
 | REGISTER NAME        | MODE | ADDRESS     |  B7 |  B6 |  B5 |  B4 |  B3 |  B2 |  B1 |  B0 |
 | ---------------------| ---- | ----------- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -201,7 +201,7 @@ These registers define the playback frequency of each channel via a 12-bit tone 
 
 3,579,545 Hz is the frequency of the Z80 and 32 is the number of bytes in the sample.
 
-### Volume control
+#### Volume control
 
 | REGISTER NAME        | MODE | ADDRESS     |  B7 |  B6 |  B5 |  B4 |  B3 |  B2 |  B1 |  B0 |
 | ---------------------| ---- | ----------- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -215,7 +215,7 @@ These registers control the output amplitude of each channel using a 4-bit volum
 
 When **`d0`**~**`d3`** = **15**, the volume is at its maximum , and when it = **`0`**, it is silent.
 
-### Channel control
+#### Channel control
 
 | REGISTER NAME        | MODE | ADDRESS     |  B7 |  B6 |  B5 |  B4 |  B3 |  B2 |  B1 |  B0 |
 | ---------------------| ---- | ----------- | --- | --- | --- | --- | --- | --- | --- | --- |
