@@ -129,7 +129,8 @@ The default value for **`M`** is **0**.
 | Knm_DAC_Data ⁽¹⁾     |   w  |    4000h    |  d7 |  d6 |  d5 |  d4 |  d3 |  d2 |  d1 |  d0 |
 | Knm_DAC_Ctrl ⁽²⁾     |   w  |    98FBh    |     |     |     |   D |     |     |     |     |
 | DAC_Data ⁽²⁾         |   w  |    98FCh    |  d7 |  d6 |  d5 |  d4 |  d3 |  d2 |  d1 |  d0 |
-###### (1) The Konami DAC mode must be selected. (2) Segment 3Fh in page 9000h must be selected.
+
+<sup>(1) The Konami DAC mode must be selected. (2) Segment 3Fh in page 9000h must be selected.</sup>
 
 The cartridge includes an 8-bit unsigned DAC controlled through a single register, to which each byte must be written manually at the desired frequency. There are two methods of use: the first is standard, while the second exists only for compatibility with Konami ROMs.
 
@@ -158,7 +159,8 @@ The SCC (Sound Creative Chip) is a 5-channel wavetable sound generator in which 
 | Waveform_Ch2         | r/w  | 9820h~983Fh |  S  |  d6 |  d5 |  d4 |  d3 |  d2 |  d1 |  d0 |
 | Waveform_Ch3         | r/w  | 9840h~985Fh |  S  |  d6 |  d5 |  d4 |  d3 |  d2 |  d1 |  d0 |
 | Waveform_Ch4 ⁽³⁾     | r/w  | 9860h~987Fh |  S  |  d6 |  d5 |  d4 |  d3 |  d2 |  d1 |  d0 |
-###### (3) Channel 5 shares the waveform of channel 4.
+
+<sup>(3) Channel 5 shares the waveform of channel 4.</sup>
 
 These registers store the 32-byte waveform played by each channel. Sample data is stored as 8-bit signed two's-complement values.
 
@@ -251,7 +253,8 @@ To execute a command, a sequence of data must be written alternately to two comm
 | Sector Erase  | AAH | 55H | 80H | AAH      | 55H | 30H ⁽⁴⁾ |
 | Erase Suspend | B0H |     |     |          |     |         |
 | Erase Resume  | 30H |     |     |          |     |         |
-###### (4) At this stage, the memory address or sector to be accessed must be selected before reading or writing.
+ 
+<sup>(4) At this stage, the memory address or sector to be accessed must be selected before reading or writing.</sup>
 
 * **Reset/Read**
   * There are two ways to achieve the same result: a short version and a long version. The short version is sufficient in most cases: writing F0h exits Status mode and returns the device to Read mode. The long version requires issuing an extended command sequence that includes the address of the memory location to be read.
