@@ -55,7 +55,7 @@ The cartridge is available in the following editions:
    * MSX-DOS 1/2: 64 kB RAM minimum
    * MSX-DOS 2 or Nextor: 128 kB RAM minimum
 
-### How to access the cartridge registers
+### Register Access
 
 ## Proprietary register description
 
