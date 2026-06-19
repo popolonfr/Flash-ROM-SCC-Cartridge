@@ -256,27 +256,27 @@ To execute a command, a sequence of data must be written alternately to two comm
  
 <sup>(4) At this stage, the memory address or sector to be accessed must be selected before reading or writing.</sup>
 
-* **Reset/Read**
-  * There are two ways to achieve the same result: a short version and a long version. The short version is sufficient in most cases: writing F0h exits Status mode and returns the device to Read mode. The long version requires issuing an extended command sequence that includes the address of the memory location to be read.
+  * #### Reset/Read
+    * There are two ways to achieve the same result: a short version and a long version. The short version is sufficient in most cases: writing F0h exits Status mode and returns the device to Read mode. The long version requires issuing an extended command sequence that includes the address of the memory location to be read.
 
-* **Autoselect**
-  * This command allows you to retrieve the manufacturer code, device code, and sector protection status. This information replaces the Flash memory contents and remains accessible until a Reset/Read command is issued.
+  * #### Autoselect
+    * This command allows you to retrieve the manufacturer code, device code, and sector protection status. This information replaces the Flash memory contents and remains accessible until a Reset/Read command is issued.
 
-* **Byte Program**
-  * Programs a byte of Flash memory (the target byte must be erased beforehand). A program command must be issued for each byte written. Since the write address space overlaps with the Flash memory segment selection register, this register must first be used to select the target segment. The program command must then be reissued for each subsequent byte write, and the original segment selection must be restored immediately afterward. This behavior is specific to the cartridge hardware.
+  * #### Byte program
+    * Programs a byte of Flash memory (the target byte must be erased beforehand). A program command must be issued for each byte written. Since the write address space overlaps with the Flash memory segment selection register, this register must first be used to select the target segment. The program command must then be reissued for each subsequent byte write, and the original segment selection must be restored immediately afterward. This behavior is specific to the cartridge hardware.
 
-* **Chip Erase**
-  * Erases the entire memory array except for protected sectors. If an error occurs during the operation, reads from the Flash memory will return status information instead of memory contents until a Reset/Read command is issued.
+  * #### Chip erase
+    * Erases the entire memory array except for protected sectors. If an error occurs during the operation, reads from the Flash memory will return status information instead of memory contents until a Reset/Read command is issued.
 
-* **Sector Erase** 
-  * Erases a sector. Additional sectors can be erased by repeating the last write cycle of the command for each sector address. If an error occurs during the operation, reading from the Flash memory will return status information instead of the memory contents until a Reset/Read command is issued.
+  * #### Sector erase 
+    * Erases a sector. Additional sectors can be erased by repeating the last write cycle of the command for each sector address. If an error occurs during the operation, reading from the Flash memory will return status information instead of the memory contents until a Reset/Read command is issued.
 
-* **Erase Suspend**
-  * Temporarily suspends an ongoing sector erase operation. While the erase is suspended, data can be read from or programmed to other sectors. The erase operation can later be resumed using the Erase Resume command (30h).
+  * #### Erase suspend
+    * Temporarily suspends an ongoing sector erase operation. While the erase is suspended, data can be read from or programmed to other sectors. The erase operation can later be resumed using the Erase Resume command (30h).
 
       This command is only valid during a sector erase operation.
 
-* **Erase Resume**
-  * Resumes a sector erase operation previously suspended with the Erase Suspend command. The device must be in Read mode for this command to be accepted.
+  * #### Erase resume
+    * Resumes a sector erase operation previously suspended with the Erase Suspend command. The device must be in Read mode for this command to be accepted.
  
 © 2026 popolon-fr
