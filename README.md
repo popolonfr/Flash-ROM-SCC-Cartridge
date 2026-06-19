@@ -46,7 +46,7 @@ The cartridge is available in the following editions:
   * Capacitive touch button (prevents the ROM from booting at startup)
   * PCB compatible with the Konami SCC cartridge case
 
-## Minimum Requirements
+## Minimum requirements
  * MSX1 computer with at least 8 kB of RAM
  * One free cartridge slot (the -/+12 V lines are not used)
  * Disk drive
@@ -55,9 +55,9 @@ The cartridge is available in the following editions:
    * MSX-DOS 1/2: 64 kB RAM minimum
    * MSX-DOS 2 or Nextor: 128 kB RAM minimum
 
-## Proprietary Register Description
+## Proprietary register description
 
-### Rom mapper
+### ROM mapper
 
 | REGISTER NAME        | MODE | ADRESS IN 8-BIT MODE | ADRESSES IN 16-BIT MODE | MIRROR RANGE |
 | ---------------------| ---- | -------------------- | ----------------------- | ------------ |
@@ -122,7 +122,7 @@ This register controls the behavior of the mapper registers. It is implemented o
 
 The default value for **`M`** is **0**.
 
-## Digital-to-Analog Converter (DAC)
+## Digital-to-analog converter (DAC)
 
 | REGISTER NAME        | MODE | ADDRESS     |  B7 |  B6 |  B5 |  B4 |  B3 |  B2 |  B1 |  B0 |
 | ---------------------| ---- | ----------- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -145,7 +145,7 @@ The cartridge includes an 8-bit unsigned DAC controlled through a single registe
 * **Knm_DAC_Data**
   * Writing an 8-bit unsigned value to this register sends it to the DAC. This register is available only when the Konami-type DAC is enabled (see the Knm_DAC_Ctrl register).
 
-## SCC Register Overview
+## SCC register overview
 
 This section briefly describes the registers of the sound engine, an SCC-compatible sound processor developed by Konami. To access it, segment 3Fh must first be mapped to page 2.
 
@@ -217,18 +217,18 @@ This register enables or disables the output of individual channels.
 
 When **`C`** = **1**, the channel is activated.
 
-## Flash Memory Commands and Entry Points
+## Flash memory commands and entry points
 
 Flash memory is organized into a specified number of sectors, each with a defined size, depending on the memory type. It provides a set of commands for programming data, erasing individual sectors or the entire chip, and accessing status registers. Flash memory requires an erase operation before any write operation.
 
-### 2 MB Flash ROM
+### 2 MB flash ROM
 
 |                      | MODE | ADDRESS     |  B7 |  B6 |  B5 |  B4 |  B3 |  B2 |  B1 |  B0 |
 | ---------------------| ---- | ----------- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Flash_CMD_1st        |   w  |   4555h     |  d7 |  d6 |  d5 |  d4 |  d3 |  d2 |  d1 |  d0 |
 | Flash_CMD_2nd        |   w  |   42AAh     |  d7 |  d6 |  d5 |  d4 |  d3 |  d2 |  d1 |  d0 |
 
-### 16 MB Flash ROM
+### 16 MB flash ROM
 
 |                      | MODE | ADDRESS     |  B7 |  B6 |  B5 |  B4 |  B3 |  B2 |  B1 |  B0 |
 | ---------------------| ---- | ----------- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -239,7 +239,7 @@ Flash memory is organized into a specified number of sectors, each with a define
 
 The status register provides a set of bits indicating the current operation status and its result. This register can be read after each command, replacing the Flash memory contents. When access to the Flash memory contents is required again, issue a Reset/Read command to return the Flash memory to normal read mode.
 
-### Command
+### Commands
 
 To execute a command, a sequence of data must be written alternately to two command addresses (Flash_CMD: 1st, 2nd). These addresses depend on the memory type.
 
