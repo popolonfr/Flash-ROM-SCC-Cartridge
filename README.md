@@ -225,7 +225,7 @@ This register enables or disables the output of individual channels.
 
 When **`C`** = **1**, the channel is activated.
 
-## Flash memory commands and entry points
+## Flash memory commands
 
 Flash memory is organized into a specified number of sectors, each with a defined size, depending on the memory type. It provides a set of commands for programming data, erasing individual sectors or the entire chip, and accessing status registers. Flash memory requires an erase operation before any write operation.
 
