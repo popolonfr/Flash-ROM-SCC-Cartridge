@@ -153,7 +153,7 @@ The cartridge includes an 8-bit unsigned DAC controlled through a single registe
 * **Knm_DAC_Data**
   * Writing an 8-bit unsigned value to this register sends it to the DAC. This register is available only when the Konami-type DAC is enabled (see the Knm_DAC_Ctrl register).
 
-### SCC register overview
+### SCC audio registers
 
 This section briefly describes the registers of the sound engine, an SCC-compatible sound processor developed by Konami. To access it, segment 3Fh must first be mapped to page 2.
 
