@@ -63,7 +63,7 @@ This function disables access to the Flash memory while the touch button is held
 
 ### How to Use It
 
-To program a ROM image into the cartridge, you will need an MSX computer with at least 64 KB of RAM and a storage device (floppy disk, hard disk, etc.) containing a bootable DOS 1 or DOS 2 system, the ROM image file to be programmed, and the ROM loader.
+To program a ROM image into the cartridge, you will need an MSX computer with at least 64 KB of RAM and a storage device (floppy disk, hard disk, etc.) containing a bootable DOS 1 or DOS 2 system, the ROM image file to be programmed, and the ROM loader [**FLX**](https://github.com/popolonfr/FLX).
 
 ## Register access
 
