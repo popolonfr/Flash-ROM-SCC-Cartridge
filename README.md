@@ -61,7 +61,7 @@ Touching the upper-left corner of the cartridge with your index finger while the
 
 This function disables access to the Flash memory while the touch button is held. However, once a ROM loaded in the cartridge is running, the touch function is ignored until the system is reset.
 
-## Register Access
+## Register access
 
 To read from or write to a cartridge register, you must first select the slot containing the cartridge. Once the slot is selected, the register can be accessed by reading from or writing to its address.
 
