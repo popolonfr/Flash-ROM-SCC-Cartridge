@@ -55,6 +55,10 @@ The cartridge is available in the following editions:
    * MSX-DOS 1/2: 64 kB RAM minimum
    * MSX-DOS 2 or Nextor: 128 kB RAM minimum
 
+### Capacitive Touch Button
+
+Touching the upper-left corner of the cartridge with your index finger while the computer is starting up prevents the cartridge's contents from booting. This allows you to erase or replace the contents by loading a different ROM, or to use the audio hardware independently of the ROM's contents.
+
 ## Register Access
 
 To read from or write to a cartridge register, you must first select the slot containing the cartridge. Once the slot is selected, the register can be accessed by reading from or writing to its address.
