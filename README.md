@@ -259,12 +259,16 @@ Flash memory is organized into a specified number of sectors, each with a define
 | Flash_CMD_1st        |   w  |   4555h     |  d7 |  d6 |  d5 |  d4 |  d3 |  d2 |  d1 |  d0 |
 | Flash_CMD_2nd        |   w  |   42AAh     |  d7 |  d6 |  d5 |  d4 |  d3 |  d2 |  d1 |  d0 |
 
+The device is organized into 32 sectors of 64 KB each.
+
 ### 16 MB flash ROM
 
 |                      | MODE | ADDRESS     |  B7 |  B6 |  B5 |  B4 |  B3 |  B2 |  B1 |  B0 |
 | ---------------------| ---- | ----------- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Flash_CMD_1st        |   w  |   4AAAh     |  d7 |  d6 |  d5 |  d4 |  d3 |  d2 |  d1 |  d0 |
 | Flash_CMD_2nd        |   w  |   4555h     |  d7 |  d6 |  d5 |  d4 |  d3 |  d2 |  d1 |  d0 |
+
+The device is organized into 128 sectors of 128 KB each.
 
 ### Commands
 
