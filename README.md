@@ -71,6 +71,8 @@ Insert the [**Flash ROM SCC cartridge**](https://www.msx.org/wiki/Popolon-fr_Fla
 A:> FLX IMG-FILE.ROM
 ```
 
+To erase the cartridge's flash memory, use the command with the /E option alone.
+
 ## Register access
 
 To read from or write to a cartridge register, you must first select the slot containing the cartridge. Once the slot is selected, the register can be accessed by reading from or writing to its address.
