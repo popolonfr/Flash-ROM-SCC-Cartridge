@@ -266,31 +266,6 @@ Flash memory is organized into a specified number of sectors, each with a define
 | Flash_CMD_1st        |   w  |   4AAAh     |  d7 |  d6 |  d5 |  d4 |  d3 |  d2 |  d1 |  d0 |
 | Flash_CMD_2nd        |   w  |   4555h     |  d7 |  d6 |  d5 |  d4 |  d3 |  d2 |  d1 |  d0 |
 
-### Status register
-
-The status register provides a set of bits indicating the current operation status and the result of program and erase operations. During program and erase operations, bus read operations from any address return the status register instead of the Flash memory contents. It is also read during erase suspend when accessing a block being erased. To access the Flash memory array again, issue a Reset/Read command to return the device to normal read mode.
-
-* **DQ7** (Data Polling bit)
-  * DQ7 is used to monitor the progress of program and erase operations. During a program operation, DQ7 outputs the complement of the data being written. When the operation completes, it returns the actual data stored at the programmed address. During an erase operation, DQ7 outputs “0”. After completion, it returns “1”, reflecting the erased state. During erase suspend, DQ7 changes from “0” to “1”, indicating that the erase operation has been suspended. In this mode, reading a block being erased requires the correct address to observe DQ7.
- 
-* **DQ6** (Toggle bit)
-  * DQ6 indicates whether a program or erase operation is still in progress. During a program or erase operation, DQ6 toggles between “0” and “1” on successive read operations, regardless of the address. When the operation completes, DQ6 stops toggling and remains stable, allowing valid data to be read. During erase suspend, DQ6 may continue to toggle when reading a block that is still being erased, and stops toggling once the erase controller is suspended.
-
-* **DQ5** (Error / failure bit)
-  * DQ5 indicates a failure condition during program or erase operations. It is set to “1” if the operation fails to complete correctly, for example when timing limits are exceeded or when an invalid program attempt is made (such as trying to set a bit from “0” back to “1”). When DQ5 is set, the device may not complete the operation, and Data Polling (DQ7/DQ6) may no longer indicate valid results. In this case, a Reset/Read command is required before issuing new commands.
-
-* **DQ3** (Erase timer bit)
-  * DQ3 indicates the status of the erase command window. During a block erase sequence, DQ3 remains “0” while the device is still accepting additional erase commands. Once the internal erase operation begins, DQ3 is set to “1”, indicating that the erase cycle has started and no further erase commands will be accepted. DQ3 can be used to confirm whether additional blocks may still be added to the current erase operation.
-
-* **DQ2** (Alternative Toggle bit)
-  * DQ2 is used together with DQ6 to monitor erase operations and erase suspend states. During an erase operation, DQ2 toggles between “0” and “1” when reading from sectors being erased. When the erase operation completes, DQ2 stops toggling. During erase suspend, DQ2 continues to toggle when reading from the suspended sector, while it remains stable (logic “1”) when reading from sectors not affected by erase suspend. DQ2 can also be used to identify which sector is currently being erased or has failed an erase operation, as only affected sectors will show toggling behavior.
-
-* **DQ1** (Buffered program abort bit)
-  * DQ1 indicates an abort condition during buffered program operations. It is set to “1” when a buffered program or enhanced buffered program operation fails or is aborted. In this case, the device must be reset using the Buffered Program Abort and Reset command before normal read or command operations can resume.
-
-    <sub>Note: Applies only to 2 MB memory.</sub>
-  
-
 ### Commands
 
 To execute a command, a sequence of data must be written alternately to two command addresses (Flash_CMD: 1st, 2nd). These addresses depend on the memory type.
@@ -330,5 +305,35 @@ This command is only valid during a sector erase operation.
 
 #### Erase resume
 Resumes a sector erase operation previously suspended with the Erase Suspend command. The device must be in Read mode for this command to be accepted.
+
+### Status register
+
+The status register provides a set of bits indicating the current operation status and the result of program and erase operations. During program and erase operations, bus read operations from any address return the status register instead of the Flash memory contents. It is also read during erase suspend when accessing a block being erased. To access the Flash memory array again, issue a Reset/Read command to return the device to normal read mode.
+
+#### DQ7 (Data Polling bit)
+
+DQ7 is used to monitor the progress of program and erase operations. During a program operation, DQ7 outputs the complement of the data being written. When the operation completes, it returns the actual data stored at the programmed address. During an erase operation, DQ7 outputs “0”. After completion, it returns “1”, reflecting the erased state. During erase suspend, DQ7 changes from “0” to “1”, indicating that the erase operation has been suspended. In this mode, reading a block being erased requires the correct address to observe DQ7.
  
+#### DQ6 (Toggle bit)
+
+DQ6 indicates whether a program or erase operation is still in progress. During a program or erase operation, DQ6 toggles between “0” and “1” on successive read operations, regardless of the address. When the operation completes, DQ6 stops toggling and remains stable, allowing valid data to be read. During erase suspend, DQ6 may continue to toggle when reading a block that is still being erased, and stops toggling once the erase controller is suspended.
+
+#### DQ5 (Error / failure bit)
+
+DQ5 indicates a failure condition during program or erase operations. It is set to “1” if the operation fails to complete correctly, for example when timing limits are exceeded or when an invalid program attempt is made (such as trying to set a bit from “0” back to “1”). When DQ5 is set, the device may not complete the operation, and Data Polling (DQ7/DQ6) may no longer indicate valid results. In this case, a Reset/Read command is required before issuing new commands.
+
+#### DQ3 (Erase timer bit)
+
+DQ3 indicates the status of the erase command window. During a block erase sequence, DQ3 remains “0” while the device is still accepting additional erase commands. Once the internal erase operation begins, DQ3 is set to “1”, indicating that the erase cycle has started and no further erase commands will be accepted. DQ3 can be used to confirm whether additional blocks may still be added to the current erase operation.
+
+#### DQ2 (Alternative Toggle bit)
+
+DQ2 is used together with DQ6 to monitor erase operations and erase suspend states. During an erase operation, DQ2 toggles between “0” and “1” when reading from sectors being erased. When the erase operation completes, DQ2 stops toggling. During erase suspend, DQ2 continues to toggle when reading from the suspended sector, while it remains stable (logic “1”) when reading from sectors not affected by erase suspend. DQ2 can also be used to identify which sector is currently being erased or has failed an erase operation, as only affected sectors will show toggling behavior.
+
+#### DQ1 (Buffered program abort bit)
+
+DQ1 indicates an abort condition during buffered program operations. It is set to “1” when a buffered program or enhanced buffered program operation fails or is aborted. In this case, the device must be reset using the Buffered Program Abort and Reset command before normal read or command operations can resume.
+
+<sub>Note: Applies only to 2 MB memory.</sub>
+  
 © 2026 popolon-fr
