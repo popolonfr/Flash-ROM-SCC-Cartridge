@@ -63,9 +63,9 @@ This function disables access to the Flash memory while the touch button is held
 
 ### How to Use It
 
-To program a ROM image into the cartridge, you will need an MSX computer with at least 64 KB of RAM and a storage device (floppy disk, hard disk, etc.) containing a bootable DOS 1 or DOS 2 system, the ROM image file to be programmed, and the ROM loader [**FLX**](https://github.com/popolonfr/FLX).
+To program a ROM image into the cartridge, you will need an MSX computer with at least 64 KB of RAM and a storage device (floppy disk, hard disk, etc.) containing a bootable MSX-DOS 1 or MSX-DOS 2 system, the ROM image file to be programmed, and the ROM loader [**FLX**](https://github.com/popolonfr/FLX).
 
-Turn on the computer and wait for DOS to boot. When the DOS prompt appears, enter the ROM loader command followed by the name of the ROM image file you wish to load, then press ENTER to start the programming process.
+Insert the [**Flash ROM SCC cartridge**](https://www.msx.org/wiki/Popolon-fr_Flash-ROM_SCC_Cartridge) into the slot. Turn on the computer and wait for MSX-DOS to boot. At the MSX-DOS prompt, type the ROM loader command followed by the name of the ROM image file to be loaded, then press Enter to begin the programming process.
 
 ```
 A:> FLX IMG-FILE.ROM
