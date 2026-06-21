@@ -67,6 +67,10 @@ To program a ROM image into the cartridge, you will need an MSX computer with at
 
 Turn on the computer and wait for DOS to boot. When the DOS prompt appears, enter the ROM loader command followed by the name of the ROM image file you wish to load, then press ENTER to start the programming process.
 
+```
+A:> FLX IMG-FILE.ROM
+```
+
 ## Register access
 
 To read from or write to a cartridge register, you must first select the slot containing the cartridge. Once the slot is selected, the register can be accessed by reading from or writing to its address.
