@@ -74,8 +74,8 @@ A:> FLX IMG-FILE.ROM
 To erase the cartridge's Flash memory, use the command with the /E option alone.
 
 ### Detect the cartridge
-
-The most basic method is to use the [**Autoselect**](https://github.com/popolonfr/Flash-ROM-SCC-Cartridge/edit/main/README.md#autoselect) command to check the Flash memory identifier. For further refinement, the SCC [**Waveform**](https://github.com/popolonfr/Flash-ROM-SCC-Cartridge/edit/main/README.md#waveform-control) registers and the [**DAC Knm_DAC_Ctrl**](https://github.com/popolonfr/Flash-ROM-SCC-Cartridge/edit/main/README.md#digital-to-analog-converter-dac) register may be tested, as bit 4 disables access to Flash memory commands when set.
+https://github.com/popolonfr/Flash-ROM-SCC-Cartridge#autoselect
+The most basic method is to use the [**Autoselect**](https://github.com/popolonfr/Flash-ROM-SCC-Cartridge#autoselect) command to check the Flash memory identifier. For further refinement, the SCC [**Waveform**](https://github.com/popolonfr/Flash-ROM-SCC-Cartridge/edit/main/README.md#waveform-control) registers and the [**DAC Knm_DAC_Ctrl**](https://github.com/popolonfr/Flash-ROM-SCC-Cartridge/edit/main/README.md#digital-to-analog-converter-dac) register may be tested, as bit 4 disables access to Flash memory commands when set.
 
 
 ## Register access
