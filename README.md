@@ -252,7 +252,11 @@ When **`C`** = **1**, the channel is activated.
 
 Flash memory is organized into a number of sectors whose size and layout depend on the device. The device provides commands for programming data, erasing individual sectors or the entire chip, suspending and resuming erase operations, and reading status information through the DQ7–DQ0 status bits. Programming can only change bits from 1 to 0; an erase operation is required before any bit can be changed from 0 back to 1.
 
-### 2 MB flash ROM
+A sector is a memory block that constitutes the minimum unit of erasure. The entire memory is divided into n sectors, depending on the device capacity. Data can be read from and programmed to individual addresses, but to modify data that has already been programmed, the sector containing that data must first be erased, after which the updated data can be rewritten.
+
+### Differences between memory types
+
+#### 2 MB flash ROM
 
 |                      | MODE | ADDRESS     |  DATA |
 | ---------------------| ---- | ----------- | ----- |
@@ -264,7 +268,7 @@ Flash memory is organized into a number of sectors whose size and layout depend 
 
 The device is organized into 32 sectors of 64 KB each.
 
-### 16 MB flash ROM
+#### 16 MB flash ROM
 
 |                      | MODE | ADDRESS     |  DATA |
 | ---------------------| ---- | ----------- | ----- |
