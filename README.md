@@ -250,7 +250,7 @@ When **`C`** = **1**, the channel is activated.
 
 ## Flash Memory and Command Set
 
-Flash memory is organized into a specified number of sectors, each with a defined size, depending on the memory type. It provides a set of commands for programming data, erasing individual sectors or the entire chip, and accessing status registers. Flash memory requires an erase operation before any write operation.
+Flash memory is organized into a number of sectors whose size and layout depend on the device. The device provides commands for programming data, erasing individual sectors or the entire chip, suspending and resuming erase operations, and reading status information through the DQ7–DQ0 status bits. Programming can only change bits from 1 to 0; an erase operation is required before any bit can be changed from 0 back to 1.
 
 ### 2 MB flash ROM
 
