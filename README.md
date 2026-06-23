@@ -317,9 +317,9 @@ This command is only valid during a sector erase operation.
 #### Erase resume
 Resumes a sector erase operation previously suspended with the Erase Suspend command. The device must be in Read mode for this command to be accepted.
 
-### Status register
+### Write Operation Status
 
-The status register provides a set of bits indicating the current operation status and the result of program and erase operations. During program and erase operations, bus read operations from any address return the status register instead of the Flash memory contents. It is also read during erase suspend when accessing a block being erased. To access the Flash memory array again, issue a Reset/Read command to return the device to normal read mode.
+During program and erase operations, read cycles return status information on DQ7–DQ0 rather than the normal memory array data. These status bits indicate the progress and completion of the embedded program or erase algorithm. During Erase Suspend, reads from a sector that is suspended return status information, while reads from non-suspended sectors return normal array data. When the embedded program or erase operation completes successfully, the device automatically returns to read mode and normal memory array data can be accessed. A Reset/Read command may be used to terminate certain special modes and force the device back to read mode.
 
 * **DQ7** (Data Polling bit)
   * DQ7 is used to monitor the progress of program and erase operations. During a program operation, DQ7 outputs the complement of the data being written. When the operation completes, it returns the actual data stored at the programmed address. During an erase operation, DQ7 outputs “0”. After completion, it returns “1”, reflecting the erased state. During erase suspend, DQ7 changes from “0” to “1”, indicating that the erase operation has been suspended. In this mode, reading a block being erased requires the correct address to observe DQ7.
