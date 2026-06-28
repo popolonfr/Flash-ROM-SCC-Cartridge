@@ -356,6 +356,6 @@ During program and erase operations, read cycles return status information on DQ
 * **DQ1** (Buffered program abort bit)
   * DQ1 indicates an abort condition during buffered program operations. It is set to “1” when a buffered program or enhanced buffered program operation fails or is aborted. In this case, the device must be reset using the Buffered Program Abort and Reset command before normal read or command operations can resume.
 
-<sub>Note: Applies only to 2 MB memory.</sub>
+    <sub>Note: Applies only to 2 MB memory.</sub>
   
 © 2026 popolon-fr
