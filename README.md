@@ -71,7 +71,13 @@ Insert the [**Flash ROM SCC cartridge**](https://www.msx.org/wiki/Popolon-fr_Fla
 A:> FLX IMG-FILE.ROM
 ```
 
+Once the file has finished loading, restart the computer by using the power switch or the Reset button. This will execute the cartridge's contents.
+
 To erase the cartridge's Flash memory, use the command with the /E option alone.
+
+```
+A:> FLX /E
+```
 
 ### Detect the cartridge
 
