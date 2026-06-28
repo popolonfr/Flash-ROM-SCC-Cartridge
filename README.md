@@ -260,32 +260,39 @@ Flash memory is organized into a number of sectors whose size and layout depend 
 
 A sector is a memory block that constitutes the minimum unit of erasure. The entire memory is divided into n sectors, depending on the device capacity. Data can be read from and programmed to individual addresses, but to modify data that has already been programmed, the sector containing that data must first be erased, after which the updated data can be rewritten.
 
-### Differences between memory types
+### Flash Memory types
 
-#### 2 MB flash ROM
+Some procedures differ depending on the type of Flash memory installed in the cartridge; the corresponding addresses for each memory type are listed below.
 
-|                      | MODE | ADDRESS     |  DATA |
-| ---------------------| ---- | ----------- | ----- |
-| Flash_CMD_1st        |   w  |   4555h     |  CMD  |
-| Flash_CMD_2nd        |   w  |   42AAh     |  CMD  |
-| Manufacturer_ID      |   r  |   4000h     |  01h  |
-| Device_ID            |   r  |   4001h     |  ADh  |
+* 2 MB flash ROM
+  |                      | MODE | ADDRESS     |  DATA |
+  | ---------------------| ---- | ----------- | ----- |
+  | Flash_CMD_1st        |   w  |   4555h     |  CMD  |
+  | Flash_CMD_2nd        |   w  |   42AAh     |  CMD  |
 
+* 16 MB flash ROM
+  |                      | MODE | ADDRESS     |  DATA |
+  | ---------------------| ---- | ----------- | ----- |
+  | Flash_CMD_1st        |   w  |   4AAAh     |  CMD  |
+  | Flash_CMD_2nd        |   w  |   4555h     |  CMD  |
 
-The device is organized into 32 sectors of 64 KB each.
+When the Autoselect command is used, the information that can be retrieved and the corresponding addresses depend on the memory type. They are listed below.
 
-#### 16 MB flash ROM
+* 2 MB flash ROM
+  |                      | MODE | ADDRESS     |  DATA |
+  | ---------------------| ---- | ----------- | ----- |
+  | Manufacturer_ID      |   r  |   4000h     |  01h  |
+  | Device_ID            |   r  |   4001h     |  ADh  |
 
-|                      | MODE | ADDRESS     |  DATA |
-| ---------------------| ---- | ----------- | ----- |
-| Flash_CMD_1st        |   w  |   4AAAh     |  CMD  |
-| Flash_CMD_2nd        |   w  |   4555h     |  CMD  |
-| Manufacturer_ID      |   r  |   4000h     |  20h  |
-| Device_ID1           |   r  |   4002h     |  7Eh  |
-| Device_ID2           |   r  |   401Ch     |  21h  |
-| Device_ID3           |   r  |   401Eh     | 0h/1h |
+* 16 MB flash ROM
+  |                      | MODE | ADDRESS     |  DATA |
+  | ---------------------| ---- | ----------- | ----- |
+  | Manufacturer_ID      |   r  |   4000h     |  20h  |
+  | Device_ID1           |   r  |   4002h     |  7Eh  |
+  | Device_ID2           |   r  |   401Ch     |  21h  |
+  | Device_ID3           |   r  |   401Eh     | 0h/1h |
 
-The device is organized into 128 sectors of 128 KB each.
+  The 2 MB cartridge's Flash memory is organized into 32 sectors of 64 KB each, while that of the 16 MB cartridge is organized into 128 sectors of 128 KB each.
 
 ### Commands
 
