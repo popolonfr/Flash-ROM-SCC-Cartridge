@@ -292,7 +292,7 @@ When the Autoselect command is used, the information that can be retrieved and t
   | Device_ID2           |   r  |   401Ch     |  21h  |
   | Device_ID3           |   r  |   401Eh     | 0h/1h |
 
-  The 2 MB cartridge's Flash memory is organized into 32 sectors of 64 KB each, while that of the 16 MB cartridge is organized into 128 sectors of 128 KB each.
+The 2 MB cartridge's Flash memory is organized into 32 sectors of 64 KB each, while that of the 16 MB cartridge is organized into 128 sectors of 128 KB each.
 
 ### Commands
 
