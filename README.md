@@ -299,6 +299,13 @@ When the Autoselect command is used, the information that can be retrieved and t
   | Device_ID2           |   r  |   401Ch     |  21h  |
   | Device_ID3           |   r  |   401Eh     | 0h/1h |
 
+  Flash memory response in Autoselect mode.
+  ```
+  ADRS +0 +1 +2 +3 +4 +5 +6 +7 +8 +9 +A +B +C +D +E +F
+  4000 20 20 7E 7E 00 00 19 19 00 00 00 00 00 00 00 00
+  4010 00 00 00 00 00 00 00 00 00 00 00 00 21 21 01 01
+  ```
+
 The 2 MB cartridge's Flash memory is organized into 32 sectors of 64 KB each, while that of the 16 MB cartridge is organized into 128 sectors of 128 KB each.
 
 ### Commands
