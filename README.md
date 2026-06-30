@@ -284,6 +284,13 @@ When the Autoselect command is used, the information that can be retrieved and t
   | Manufacturer_ID      |   r  |   4000h     |  01h  |
   | Device_ID            |   r  |   4001h     |  ADh  |
 
+  Flash memory response in Autoselect mode.
+  ```
+  ADRS +0 +1 +2 +3 +4 +5 +6 +7 +8 +9 +A +B +C +D +E +F
+  4000 01 AD 00 00 01 AD 00 00 01 AD 00 00 01 AD 00 00
+  4010 01 AD 00 00 01 AD 00 00 01 AD 00 00 01 AD 00 00
+  ```
+
 * 16 MB flash ROM
   |                      | MODE | ADDRESS     |  DATA |
   | ---------------------| ---- | ----------- | ----- |
