@@ -284,7 +284,7 @@ When the Autoselect command is used, the information that can be retrieved and t
   | Manufacturer_ID      |   r  |   4000h     |  01h  |
   | Device_ID            |   r  |   4001h     |  ADh  |
 
-  Flash memory response in Autoselect mode.
+  2 MB Flash memory response in Autoselect mode.
   ```
   ADRS +0 +1 +2 +3 +4 +5 +6 +7 +8 +9 +A +B +C +D +E +F
   4000 01 AD 00 00 01 AD 00 00 01 AD 00 00 01 AD 00 00
@@ -299,7 +299,7 @@ When the Autoselect command is used, the information that can be retrieved and t
   | Device_ID2           |   r  |   401Ch     |  21h  |
   | Device_ID3           |   r  |   401Eh     | 0h/1h |
 
-  Flash memory response in Autoselect mode.
+  16 MB Flash memory response in Autoselect mode.
   ```
   ADRS +0 +1 +2 +3 +4 +5 +6 +7 +8 +9 +A +B +C +D +E +F
   4000 20 20 7E 7E 00 00 19 19 00 00 00 00 00 00 00 00
